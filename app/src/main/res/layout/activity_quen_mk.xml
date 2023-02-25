@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity_quenMK"
-    >
+    android:gravity="center">
+
 
     <LinearLayout
-        android:layout_width="413dp"
-        android:layout_height="469dp"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,18 +20,18 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="372dp"
+            android:layout_height="81dp"
             android:text="Quên mật khẩu"
             android:textAllCaps="false"
-            android:textSize="60dp"
+            android:textSize="50dp"
+            android:textAlignment="center"
             tools:layout_editor_absoluteX="92dp"
-            tools:layout_editor_absoluteY="113dp"
-            android:layout_marginBottom="20dp"/>
+            tools:layout_editor_absoluteY="113dp" />
 
         <EditText
             android:id="@+id/editTextTenDKQuenMK"
-            android:layout_width="400dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Tên đăng nhập"
@@ -40,7 +40,7 @@
 
         <EditText
             android:id="@+id/editTextMatKhauDKQuenMK"
-            android:layout_width="400dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nhập mật khẩu"
@@ -49,7 +49,7 @@
 
         <EditText
             android:id="@+id/editTextNhapLaiMatKhauDkQuenMK"
-            android:layout_width="400dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nhập lại mật khẩu"
@@ -64,22 +64,30 @@
 
             <Button
                 android:id="@+id/btnThayDoi"
-                android:layout_width="180dp"
+                android:layout_width="170dp"
                 android:layout_height="80dp"
-                android:text="Đổi Mật khẩu"
-                android:textAllCaps="false"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
 
-                />
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Đổi Mật khẩu"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btnQuayLaiQuenMK"
-                android:layout_width="180dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="50dp"
+                android:layout_width="192dp"
+                android:layout_height="78dp"
+
+                android:layout_marginStart="10dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_toRightOf="@+id/btnThayDoi"
                 android:text="Quay Lại"
                 android:textAllCaps="false" />
 
         </RelativeLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
