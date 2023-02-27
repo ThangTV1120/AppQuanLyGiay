@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:layout_marginTop="200dp"
     android:padding="20dp">
 
-    <EditText
-        android:id="@+id/editTextNgayLapHoaDonNhap"
+    <TextView
+        android:id="@+id/TextNgayLapHoaDonNhap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Ngày lập hóa đơn"
         android:inputType="datetime"
-        android:textSize="35sp" />
+        android:textSize="35sp"
+       />
+
+    <ImageButton
+        android:id="@+id/buttonTimeNhapHang"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@id/TextNgayLapHoaDonNhap"
+        android:src="@drawable/calendar" />
+
 
     <EditText
         android:id="@+id/editTextNhaCungCap"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_height="60dp"
+        android:textSize="30dp"
         android:hint="Nhà cung cấp"
         android:inputType="textPersonName"
-        android:textSize="35sp" />
+        android:layout_below="@+id/TextNgayLapHoaDonNhap"
+        />
 
     <Button
         android:id="@+id/buttonThemHoaDonNhap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tạo hóa đơn"
-        android:textSize="35sp" />
+        android:textSize="35sp"
+        android:layout_below="@+id/editTextNhaCungCap"
+        />
 
     <Button
         android:id="@+id/buttonHuyTaoHoaDonNhap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hủy"
-        android:textSize="35sp" />
-
-
-</LinearLayout>
+        android:textSize="35sp"
+        android:layout_below="@+id/buttonThemHoaDonNhap"
+        />
+</RelativeLayout>

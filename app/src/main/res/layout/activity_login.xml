@@ -98,9 +98,9 @@
                 android:id="@+id/btnDangNhap"
                 android:layout_width="180dp"
                 android:layout_height="80dp"
+                android:onClick="onclickDN"
                 android:text="Đăng nhập"
-                android:textSize="20sp"
-               />
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
