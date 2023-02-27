@@ -81,10 +81,12 @@
 
                 android:layout_marginStart="10dp"
 
+                android:layout_marginLeft="21dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_toRightOf="@+id/btnThayDoi"
+                android:onClick="onclickQuayLaiMain"
                 android:text="Quay Lại"
                 android:textAllCaps="false" />
 
