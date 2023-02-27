@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="100dp"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="20dp"
     tools:context=".XuatHang">
 
@@ -13,7 +13,7 @@
         android:layout_width="320dp"
         android:layout_height="60dp"
         android:ems="10"
-        android:hint="Ngày lập hóa đơn"
+        android:hint="Ngày xuất hóa đơn"
         android:inputType="datetime"
         android:textSize="35sp" />
 
@@ -25,28 +25,28 @@
         android:src="@drawable/calendar" />
 
     <EditText
-        android:id="@+id/editTextNhaCungCap"
+        android:id="@+id/editTextNguoiMua"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
-        android:hint="Nhà cung cấp"
+        android:hint="Người mua"
         android:inputType="textPersonName"
         android:layout_below="@id/buttonTimeXuatHang"
         android:textSize="35sp" />
 
     <Button
-        android:id="@+id/buttonThemHoaDonNhap"
+        android:id="@+id/buttonXuatHoaDon"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Tạo hóa đơn"
-        android:layout_below="@+id/editTextNhaCungCap"
-        android:textSize="35sp" />
+        android:text="Tạo hóa đơn xuất"
+        android:layout_below="@+id/editTextNguoiMua"
+        android:textSize="25sp" />
 
     <Button
-        android:id="@+id/buttonHuyTaoHoaDonNhap"
+        android:id="@+id/buttonHuyTaoHoaDonXuat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonThemHoaDonNhap"
+        android:layout_below="@+id/buttonXuatHoaDon"
         android:text="Hủy"
         android:textSize="35sp" />
 

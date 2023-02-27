@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="20dp"
+    >
+
+    <Button
+        android:id="@+id/buttonNhapHang"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Nhập hàng"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:textSize="25dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/buttonXuatHang"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Xuất hàng"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/buttonHoaDonNhap"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Hóa đơn nhâp"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonHoaDonXuat"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Hóa đơn xuất"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonHangTrongKho"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Hàng trong kho"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+</LinearLayout>

@@ -5,34 +5,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
+import java.util.Timer;
 
-public class XuatHang extends AppCompatActivity
-{
-    ImageButton btnTimeXuat;
+public class NhapHang extends AppCompatActivity {
+    ImageButton TimeNhap;
 
-    Button btnXuatHoaDon,btnHuyXuat;
-    TextView textViewTimeXuat;
+    Button btnTaoHoaDon,btnHuyNhap;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
+    TextView txtTimeNhap;
+
+    protected void OnCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.xuathang);
+        setContentView(R.layout.nhap_hang);
 
-        btnTimeXuat=findViewById(R.id.buttonTimeXuatHang);
-        textViewTimeXuat=findViewById(R.id.TextViewNgayLapHoaDonXuat);
-        btnXuatHoaDon=findViewById(R.id.buttonXuatHoaDon);
-        btnHuyXuat=findViewById(R.id.buttonHuyTaoHoaDonXuat);
+        TimeNhap=findViewById(R.id.buttonTimeNhapHang);
+        btnTaoHoaDon=findViewById(R.id.buttonThemHoaDonNhap);
+        btnHuyNhap=findViewById(R.id.buttonHuyTaoHoaDonNhap);
+        txtTimeNhap=findViewById(R.id.TextNgayLapHoaDonNhap);
 
-        btnTimeXuat.setOnClickListener(new View.OnClickListener() {
+        TimeNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(XuatHang.this,"Djfkd",Toast.LENGTH_LONG);
                 final Calendar c = Calendar.getInstance();
 
                 int year = c.get(Calendar.YEAR);
@@ -41,11 +41,11 @@ public class XuatHang extends AppCompatActivity
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         // on below line we are passing context.
-                        XuatHang.this,
+                        NhapHang.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
-                                textViewTimeXuat.setText(dayy+" / "+monthh+" / "+ yearr);
+                                txtTimeNhap.setText(dayy+" / "+monthh+" / "+ yearr);
                             }
                         } ,
                         year, month, day);
@@ -53,18 +53,19 @@ public class XuatHang extends AppCompatActivity
             }
         });
 
-        btnXuatHoaDon.setOnClickListener(new View.OnClickListener() {
+        btnTaoHoaDon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(XuatHang.this,"Đây là button tạo",Toast.LENGTH_LONG).show();
+            public void onClick(View view) {
+
             }
         });
 
-        btnHuyXuat.setOnClickListener(new View.OnClickListener() {
+        btnHuyNhap.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(XuatHang.this,"Đây là button hủy",Toast.LENGTH_LONG).show();
+            public void onClick(View view) {
+
             }
         });
+
     }
 }
