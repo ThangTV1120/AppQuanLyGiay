@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 //    Button ;
-    ImageView dangxuat, btt_hangTrongHho,btt_nhapHang,btt_xuatHang,btt_hoadonNhap,btt_hoadonXuat;
+    ImageView dangxuat, btt_hangTrongkho,btt_nhapHang,btt_xuatHang,btt_hoadonNhap,btt_hoadonXuat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btt_hangTrongHho.setOnClickListener(new View.OnClickListener() {
+        btt_hangTrongkho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,Login.class);
+                Intent intent=new Intent(MainActivity.this,activity_hangtrongkho.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void getView(){
         dangxuat=findViewById(R.id.btt_DangXuat);
-        btt_hangTrongHho=findViewById(R.id.btt_hangtrongkho);
+        btt_hangTrongkho=findViewById(R.id.btt_hangtrongkho);
         btt_nhapHang=findViewById(R.id.btt_nhaphang);
         btt_xuatHang=findViewById(R.id.btt_xuathang);
         btt_hoadonNhap=findViewById(R.id.btt_hoadonnhap);

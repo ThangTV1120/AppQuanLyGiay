@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f2f2f2"
+    android:background="#fff"
     tools:context=".MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:gravity="center">
 
         <RelativeLayout
             android:id="@+id/Header"
@@ -21,14 +22,15 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:layout_centerVertical="true"
-                android:gravity="center_vertical"
                 android:layout_marginEnd="24dp"
                 android:layout_toStartOf="@+id/btt_DangXuat"
-                android:text="Name"
+                android:gravity="center_vertical"
+                android:text="Name "
+
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="25dp" />
 
             <ImageView
                 android:id="@+id/btt_DangXuat"
