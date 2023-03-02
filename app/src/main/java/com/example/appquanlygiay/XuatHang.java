@@ -22,7 +22,7 @@ public class XuatHang extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.xuathang);
+        setContentView(R.layout.activity_xuathang);
 
         btnTimeXuat=findViewById(R.id.buttonTimeXuatHang);
         textViewTimeXuat=findViewById(R.id.TextViewNgayLapHoaDonXuat);

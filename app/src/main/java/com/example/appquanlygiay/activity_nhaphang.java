@@ -5,33 +5,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
-import java.util.Timer;
 
-public class NhapHang extends AppCompatActivity {
+
+public class activity_nhaphang extends AppCompatActivity {
     ImageButton TimeNhap;
 
     Button btnTaoHoaDon,btnHuyNhap;
 
     TextView txtTimeNhap;
+    @Override
+    protected void onCreate(Bundle savesavedInstanceState) {
+        super.onCreate(savesavedInstanceState);
+        setContentView(R.layout.activity_nhap_hang);
+        getView();
 
-    protected void OnCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.nhap_hang);
-
-        TimeNhap=findViewById(R.id.buttonTimeNhapHang);
-        btnTaoHoaDon=findViewById(R.id.buttonThemHoaDonNhap);
-        btnHuyNhap=findViewById(R.id.buttonHuyTaoHoaDonNhap);
-        txtTimeNhap=findViewById(R.id.TextNgayLapHoaDonNhap);
 
         TimeNhap.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
                 final Calendar c = Calendar.getInstance();
 
@@ -41,7 +35,7 @@ public class NhapHang extends AppCompatActivity {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         // on below line we are passing context.
-                        NhapHang.this,
+                        activity_nhaphang.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
@@ -54,18 +48,23 @@ public class NhapHang extends AppCompatActivity {
         });
 
         btnTaoHoaDon.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
 
             }
         });
 
         btnHuyNhap.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
 
             }
         });
+    }
 
+    public void getView()
+    {
+        TimeNhap=findViewById(R.id.buttonTimeNhapHang);
+        btnTaoHoaDon=findViewById(R.id.buttonThemHoaDonNhap);
+        btnHuyNhap=findViewById(R.id.buttonHuyTaoHoaDonNhap);
+        txtTimeNhap=findViewById(R.id.TextNgayLapHoaDonNhap);
     }
 }

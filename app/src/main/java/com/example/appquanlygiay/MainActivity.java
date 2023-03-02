@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
        btt_nhapHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,NhapHang.class);
+                Intent intent=new Intent(MainActivity.this,activity_nhaphang.class);
                 startActivity(intent);
             }
         });
