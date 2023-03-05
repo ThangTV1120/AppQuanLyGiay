@@ -1,4 +1,4 @@
-package com.example.appquanlygiay;
+package com.example.appquanlygiay.Activity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -7,8 +7,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.appquanlygiay.R;
+
 import java.util.Calendar;
 
 

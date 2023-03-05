@@ -1,4 +1,4 @@
-package com.example.appquanlygiay;
+package com.example.appquanlygiay.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.appquanlygiay.R;
 
 public class activity_quenMK extends AppCompatActivity {
 
@@ -17,7 +19,7 @@ public class activity_quenMK extends AppCompatActivity {
 
     }
     public void onclickQuayLaiMain(View v){
-        Intent intent=new Intent(activity_quenMK.this,Login.class);
+        Intent intent=new Intent(activity_quenMK.this, Login.class);
         startActivity(intent);
     }
 }

@@ -1,47 +1,59 @@
-package com.example.appquanlygiay;
+package com.example.appquanlygiay.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.appquanlygiay.R;
 
 public class MainActivity extends AppCompatActivity {
 //    Button ;
     ImageView dangxuat, btt_hangTrongkho,btt_nhapHang,btt_xuatHang,btt_hoadonNhap,btt_hoadonXuat;
+   TextView TenNguoiSD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getView();
+        String name =getIntent().getStringExtra("TenNguoiSuDung");
+        TenNguoiSD.setText(name);
+
+
+
+
+
+
 
         dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,Login.class);
+                Intent intent=new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
             }
         });
         btt_hangTrongkho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,activity_hangtrongkho.class);
+                Intent intent=new Intent(MainActivity.this, activity_hangtrongkho.class);
                 startActivity(intent);
             }
         });
        btt_nhapHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,activity_nhaphang.class);
+                Intent intent=new Intent(MainActivity.this, activity_nhaphang.class);
                 startActivity(intent);
             }
         });
         btt_xuatHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,XuatHang.class);
+                Intent intent=new Intent(MainActivity.this, XuatHang.class);
                 startActivity(intent);
             }
         });
@@ -54,6 +66,6 @@ public class MainActivity extends AppCompatActivity {
         btt_xuatHang=findViewById(R.id.btt_xuathang);
         btt_hoadonNhap=findViewById(R.id.btt_hoadonnhap);
         btt_hoadonXuat=findViewById(R.id.btt_hoadonxuat);
-
+        TenNguoiSD=findViewById(R.id.TenNguoiSD);
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
+    tools:context=".Activity.Login"
 
   >
 
@@ -52,6 +52,17 @@
                 android:inputType="textPersonName"
                 android:textSize="35sp" />
 
+            <EditText
+                android:id="@+id/editTextMatKhauDN"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextTenDN"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:layout_marginTop="12dp"
+                android:hint="Mật khẩu"
+                android:inputType="textPassword"
+                android:textSize="35sp" />
             <TextView
                 android:id="@+id/tvquenmk"
                 android:layout_width="wrap_content"
@@ -69,17 +80,6 @@
                 android:textColor="#000"
                 android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/editTextMatKhauDN"
-                android:layout_width="500dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/editTextTenDN"
-                android:layout_centerHorizontal="true"
-                android:ems="10"
-                android:layout_marginTop="12dp"
-                android:hint="Mật khẩu"
-                android:inputType="textPassword"
-                android:textSize="35sp" />
         </RelativeLayout>
 
         <RelativeLayout

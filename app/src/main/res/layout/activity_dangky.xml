@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_dangky">
+    tools:context=".Activity.activity_dangky">
 
 
     <LinearLayout
@@ -34,6 +34,7 @@
             android:layout_width="389dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_marginTop="5dp"
             android:hint="Nhập họ tên"
             android:inputType="textPersonName"
             android:textSize="28sp" />
@@ -44,6 +45,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Tên đăng nhập"
+            android:layout_marginTop="5dp"
             android:inputType="textPersonName"
             android:textSize="28sp" />
 
@@ -54,6 +56,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nhập mật khẩu"
+            android:layout_marginTop="5dp"
             android:inputType="textPassword"
             android:textSize="28sp" />
 
@@ -63,6 +66,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nhập lại mật khẩu"
+            android:layout_marginTop="5dp"
             android:inputType="textPassword"
             android:textSize="28sp" />
 
@@ -80,7 +84,7 @@
                 android:text="Đăng ký" />
 
             <Button
-                android:id="@+id/btnQuayLai"
+                android:id="@+id/btnQuayLaiDK"
                 android:layout_width="150dp"
                 android:layout_height="80dp"
 
