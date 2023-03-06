@@ -28,6 +28,7 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         database.execSQL(sql);//thuc thi cau lenh
     }
+
     //truy van tra ket qua select ko co dieu kien
     public Cursor GetData(String sql){
         SQLiteDatabase database=getReadableDatabase();
@@ -36,6 +37,7 @@ public class Database extends SQLiteOpenHelper {
     //truy van tra ket qua select co dieu kien
     public Cursor GetData_Condition(String sql,String[] condition){
         SQLiteDatabase database=getReadableDatabase();
+
         return database.rawQuery(sql,condition); // thuc hien cau lenh truy van truc tiep
     }
     //truy van tra ket qua select ko co dieu kien
