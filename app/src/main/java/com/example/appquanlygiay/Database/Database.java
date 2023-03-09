@@ -38,7 +38,7 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database=getReadableDatabase();
         return database.rawQuery(sql,condition); // thuc hien cau lenh truy van truc tiep
     }
-    //truy van tra ket qua select ko co dieu kien
+
     public long insertData(String nameTable, ContentValues valuse){
         SQLiteDatabase database=getWritableDatabase();
         return database.insert(nameTable,null,valuse);
