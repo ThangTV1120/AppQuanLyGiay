@@ -1,55 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_marginTop="200dp"
-    android:padding="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/TextNgayLapHoaDonNhap"
-        android:layout_width="match_parent"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ngày lập hóa đơn"
-        android:inputType="datetime"
-        android:textSize="35sp"
-       />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/buttonTimeNhapHang"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_toRightOf="@id/TextNgayLapHoaDonNhap"
-        android:src="@drawable/calendar" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/TextNgayLapHoaDonNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ngày lập hóa đơn"
+            android:inputType="datetime"
+            android:textSize="35sp" />
+
+        <ImageButton
+            android:id="@+id/buttonTimeNhapHang"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@id/TextNgayLapHoaDonNhap"
+            android:src="@drawable/calendar" />
 
 
-    <EditText
-        android:id="@+id/editTextNhaCungCap"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textSize="30dp"
-        android:hint="Nhà cung cấp"
-        android:inputType="textPersonName"
-        android:layout_below="@+id/TextNgayLapHoaDonNhap"
-        />
+        <EditText
+            android:id="@+id/editTextNhaCungCap"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/TextNgayLapHoaDonNhap"
+            android:hint="Nhà cung cấp"
+            android:inputType="textPersonName"
+            android:textSize="30dp" />
 
-    <Button
-        android:id="@+id/buttonThemHoaDonNhap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tạo hóa đơn"
-        android:textSize="35sp"
-        android:layout_below="@+id/editTextNhaCungCap"
-        />
+        <Button
+            android:id="@+id/buttonThemHoaDonNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextNhaCungCap"
+            android:text="Tạo hóa đơn"
+            android:textSize="35sp" />
 
-    <Button
-        android:id="@+id/buttonHuyTaoHoaDonNhap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hủy"
-        android:textSize="35sp"
-        android:layout_below="@+id/buttonThemHoaDonNhap"
-        />
-</RelativeLayout>
+        <Button
+            android:id="@+id/buttonHuyTaoHoaDonNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonThemHoaDonNhap"
+            android:text="Hủy"
+            android:textSize="35sp" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

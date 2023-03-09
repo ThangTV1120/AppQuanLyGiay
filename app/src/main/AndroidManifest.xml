@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:background="@color/colorPrimary"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -72,6 +73,21 @@
             android:name=".Activity.activity_nhaphang"
             android:exported="false"
             android:label="Nhập Hàng">>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
+        </activity>
+
+        <activity android:name=".Activity.activity_list_nhaphang"
+            android:exported="false"
+            android:label="Danh sách nhập hàng ">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
+        </activity>
+
+        <activity android:name=".Activity.activity_themhang"
+            android:label="Thêm hàng ">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value=""/>
