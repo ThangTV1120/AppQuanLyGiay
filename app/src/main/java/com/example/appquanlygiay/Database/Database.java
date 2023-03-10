@@ -40,7 +40,8 @@ public class Database extends SQLiteOpenHelper {
 
         return database.rawQuery(sql,condition); // thuc hien cau lenh truy van truc tiep
     }
-
+    //Cursor la để lưu giá trị trả về
+    //ContentValues la được sử dụng để lưu các giá trị tương ứng với các trường trong bảng
     public long insertData(String nameTable, ContentValues valuse){
         SQLiteDatabase database=getWritableDatabase();
         return database.insert(nameTable,null,valuse);

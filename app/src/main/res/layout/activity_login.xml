@@ -44,7 +44,7 @@
 
             <EditText
                 android:id="@+id/editTextTenDN"
-                android:layout_width="500dp"
+                android:layout_width="520dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
