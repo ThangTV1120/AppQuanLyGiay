@@ -1,26 +1,32 @@
-package com.example.appquanlygiay.Class;
+package com.example.appquanlygiay.Models;
 
 import java.util.Date;
 
 public class HoaDonNhap {
     String idNhap,nhacc,nguoinhap;
+
+    int SoLuongsp;
     Date datenhap;
+
+    int TongTienNhap;
 
     public HoaDonNhap() {
     }
 
-    public HoaDonNhap(String id, String nhacc  , Date datenhap,String nguoinhap) {
+    public HoaDonNhap(String id,String nguoinhap, String nhacc  , Date datenhap,int SoLuongsp, int TongTienNhap) {
         this.idNhap=id;
+        this.nguoinhap =  nguoinhap;
         this.nhacc = nhacc;
         this.datenhap = datenhap;
-        this.nguoinhap =  nguoinhap;
+        this.SoLuongsp=SoLuongsp;
+        this.TongTienNhap=TongTienNhap;
     }
 
-    public String getId() {
+    public String getIdNhap() {
         return idNhap;
     }
 
-    public void setId(String id) {
+    public void setIdNhap(String id) {
         this.idNhap = id;
     }
 
@@ -46,5 +52,21 @@ public class HoaDonNhap {
 
     public void setNguoinhap(String nguoinhap) {
         this.nguoinhap = nguoinhap;
+    }
+
+    public int getTongTienNhap() {
+        return TongTienNhap;
+    }
+
+    public void setTongTienNhap(int tongTienNhap) {
+        TongTienNhap = tongTienNhap;
+    }
+
+    public int getSoLuongsp() {
+        return SoLuongsp;
+    }
+
+    public void setSoLuongsp(int soLuongsp) {
+        SoLuongsp = soLuongsp;
     }
 }

@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:background="@color/colorPrimary"
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -61,7 +61,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity.XuatHang"
+            android:name=".Activity.activity_xuathang"
             android:exported="false"
             android:label="Xuất Hàng">
             <meta-data

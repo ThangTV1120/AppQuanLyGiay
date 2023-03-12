@@ -1,6 +1,7 @@
 package com.example.appquanlygiay.Activity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import com.example.appquanlygiay.R;
 
 import java.util.Calendar;
 
-public class XuatHang extends AppCompatActivity
+public class activity_xuathang extends AppCompatActivity
 {
     ImageButton btnTimeXuat;
 
@@ -35,7 +36,7 @@ public class XuatHang extends AppCompatActivity
         btnTimeXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(XuatHang.this,"Djfkd",Toast.LENGTH_LONG);
+                Toast.makeText(activity_xuathang.this,"Djfkd",Toast.LENGTH_LONG);
                 final Calendar c = Calendar.getInstance();
 
                 int year = c.get(Calendar.YEAR);
@@ -44,7 +45,7 @@ public class XuatHang extends AppCompatActivity
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         // on below line we are passing context.
-                        XuatHang.this,
+                        activity_xuathang.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
@@ -59,14 +60,16 @@ public class XuatHang extends AppCompatActivity
         btnXuatHoaDon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(XuatHang.this,"Đây là button tạo",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(activity_xuathang.this,MainActivity.class);
+                startActivity(intent);
             }
         });
 
         btnHuyXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(XuatHang.this,"Đây là button hủy",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(activity_xuathang.this,MainActivity.class);
+                startActivity(intent);
             }
         });
     }

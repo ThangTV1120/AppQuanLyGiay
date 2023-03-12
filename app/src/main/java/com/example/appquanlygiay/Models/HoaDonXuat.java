@@ -1,26 +1,29 @@
-package com.example.appquanlygiay.Class;
+package com.example.appquanlygiay.Models;
 
 import java.util.Date;
 
 public class HoaDonXuat {
-    String idXuat,nguoimua,nguoinhap;
+    String idXuat, nguoimua, nguoinhap;
     Date datenhap;
+
+    int TongTienXuat;
 
     public HoaDonXuat() {
     }
 
-    public HoaDonXuat(String id, String nguoimua  , Date datenhap,String nguoinhap) {
-        this.idXuat=id;
-        this.nguoimua= nguoimua;
+    public HoaDonXuat(String id, String nguoinhap, String nguoimua, Date datenhap, int TongTienXuat) {
+        this.idXuat = id;
+        this.nguoinhap = nguoinhap;
+        this.nguoimua = nguoimua;
         this.datenhap = datenhap;
-        this.nguoinhap =  nguoinhap;
+        this.TongTienXuat = TongTienXuat;
     }
 
-    public String getId() {
+    public String getIdXuat() {
         return idXuat;
     }
 
-    public void setId(String id) {
+    public void setIdXuat(String id) {
         this.idXuat = id;
     }
 
@@ -47,4 +50,13 @@ public class HoaDonXuat {
     public void setNguoinhap(String nguoinhap) {
         this.nguoinhap = nguoinhap;
     }
+
+    public int getTongTienXuat() {
+        return TongTienXuat;
+    }
+
+    public void setTongTienXuat(int tongTienXuat) {
+        TongTienXuat = tongTienXuat;
+    }
 }
+

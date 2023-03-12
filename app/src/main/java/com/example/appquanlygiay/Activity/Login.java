@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.appquanlygiay.Class.User;
+import com.example.appquanlygiay.Models.User;
 import com.example.appquanlygiay.Database.Database;
 import com.example.appquanlygiay.R;
 
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class Login extends AppCompatActivity {
     Button login,singup;
     TextView quenMK;
-    Database database;
+    Database databaseUser;
     EditText TenDN,MatKhau;
     String TK,MK;
     ArrayList<User> arrayUser;
@@ -31,8 +31,9 @@ public class Login extends AppCompatActivity {
         getView();
         arrayUser=new ArrayList<>();
 
-        database =new Database(Login.this,"QuanLyGiay.sqlite",null,1);
-        database.QueryData("CREATE TABLE IF NOT EXISTS User (ID INTEGER PRIMARY KEY AUTOINCREMENT,TKDN VARCHAR(30), MatKhau VARCHAR(30),Name NVARCHAR(50))");
+        databaseUser =new Database(Login.this,"QuanLyGiay.sqlite",null,1);
+        databaseUser.QueryData("CREATE TABLE IF NOT EXISTS User (ID INTEGER  AUTOINCREMENT," +
+                "TKDN VARCHAR(30) PRIMARY KEY, MatKhau VARCHAR(30),Name NVARCHAR(50))");
 
         TK=getIntent().getStringExtra("TK");
         MK=getIntent().getStringExtra("MK");
@@ -42,7 +43,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void getData(){
-        Cursor dataUser=database.GetData("SELECT * FROM User");
+        Cursor dataUser=databaseUser.GetData("SELECT * FROM User");
         arrayUser.clear();
         while(dataUser.moveToNext()){
             int id=dataUser.getInt(0);

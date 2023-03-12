@@ -1,4 +1,4 @@
-package com.example.appquanlygiay.Class;
+package com.example.appquanlygiay.Models;
 
 public class User {
     int id;

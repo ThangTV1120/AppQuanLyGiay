@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.appquanlygiay.Class.User;
+import com.example.appquanlygiay.Models.User;
 import com.example.appquanlygiay.Database.Database;
 import com.example.appquanlygiay.R;
 
