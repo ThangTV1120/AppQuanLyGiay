@@ -10,6 +10,10 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeParseException;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appquanlygiay.Database.Database;
@@ -53,9 +57,9 @@ public class activity_nhaphang extends AppCompatActivity {
         idNhap = getIntent().getStringExtra("idNhap");
         nguoinhap = getIntent().getStringExtra("nguoinhap");
         nhacc = getIntent().getStringExtra("nhacc");
-        datenhap = getIntent().getStringExtra("datenhap");
+        datenhap =getIntent().getStringExtra("datenhap");
 
-
+        txtTimeNhap.setText(datenhap);
 
 
         TimeNhap.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +86,7 @@ public class activity_nhaphang extends AppCompatActivity {
 
         btnTaoHoaDon.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
                 Intent intent = new Intent(activity_nhaphang.this,activity_themhang.class);
                 startActivity(intent);
             }
@@ -95,21 +100,22 @@ public class activity_nhaphang extends AppCompatActivity {
         });
     }
 
-    public void getData()
-    {
+    public void getData() throws ParseException {
         Cursor dataHoaDonNhap= databaseHoaDonNhap.GetData("Select * from HoaDonNhap");
         arrayHoaDonNhap.clear();
         while (dataHoaDonNhap.moveToNext()){
+            DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
             String idnhap = dataHoaDonNhap.getString(0);
             String nguoinhap = dataHoaDonNhap.getString(1);
             String nhacc = dataHoaDonNhap.getString(2);
-            String ngaynhap = dataHoaDonNhap.getString(3);
+            String day =dataHoaDonNhap.getString(3);
+            Date ngaynhap =df.parse(day) ;
             int tongsp = dataHoaDonNhap.getInt(4);
             int TongTien = dataHoaDonNhap.getInt(5);
 
             arrayHoaDonNhap.add(new HoaDonNhap(idnhap,nguoinhap,nhacc,ngaynhap,tongsp,TongTien));
         }
-
+        dataHoaDonNhap.close();
     }
 
     public void getView()

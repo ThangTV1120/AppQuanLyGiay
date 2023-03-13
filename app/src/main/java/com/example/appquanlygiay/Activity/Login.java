@@ -74,6 +74,9 @@ public class Login extends AppCompatActivity {
                     trangthai=true;
                     Intent intent = new Intent(Login.this,MainActivity.class);
                     intent.putExtra("TenNguoiSuDung",name);
+
+                    R.string.TKKH = "Tuấn";
+
                     startActivity(intent);
                     break;
                 }
