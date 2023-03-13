@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         btt_xuatHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, activity_xuathang.class);
+                Intent intent=new Intent(MainActivity.this, activity_themhoadon_xuat.class);
                 startActivity(intent);
             }
         });

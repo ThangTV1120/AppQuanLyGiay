@@ -22,7 +22,6 @@ import com.example.appquanlygiay.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 
 public class activity_nhaphang extends AppCompatActivity {
@@ -45,7 +44,7 @@ public class activity_nhaphang extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savesavedInstanceState) {
         super.onCreate(savesavedInstanceState);
-        setContentView(R.layout.activity_nhap_hang);
+        setContentView(R.layout.activity_themhoadon_nhap);
         getView();
         arrayHoaDonNhap = new ArrayList<>();
         databaseHoaDonNhap = new Database(activity_nhaphang.this,"HoaDonNhap.sqlite",null,1);
@@ -86,8 +85,12 @@ public class activity_nhaphang extends AppCompatActivity {
 
         btnTaoHoaDon.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+<<<<<<< HEAD
 
                 Intent intent = new Intent(activity_nhaphang.this,activity_themhang.class);
+=======
+                Intent intent = new Intent(activity_nhaphang.this, activity_themhoadon_nhap.class);
+>>>>>>> 0dd312dceb93f0be0abf5008c7c65d5350ec4274
                 startActivity(intent);
             }
         });

@@ -61,7 +61,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity.activity_xuathang"
+            android:name=".Activity.activity_themhoadon_xuat"
             android:exported="false"
             android:label="Xuất Hàng">
             <meta-data
@@ -78,7 +78,7 @@
                 android:value=""/>
         </activity>
 
-        <activity android:name=".Activity.activity_list_nhaphang"
+        <activity android:name=".Activity.activity_list_sanpham"
             android:exported="false"
             android:label="Danh sách nhập hàng ">
             <meta-data
@@ -86,7 +86,7 @@
                 android:value=""/>
         </activity>
 
-        <activity android:name=".Activity.activity_themhang"
+        <activity android:name=".Activity.activity_themhoadon_nhap"
             android:label="Thêm hàng ">
             <meta-data
                 android:name="android.app.lib_name"

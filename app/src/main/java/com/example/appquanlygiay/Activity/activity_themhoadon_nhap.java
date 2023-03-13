@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appquanlygiay.R;
 
-public class activity_themhang extends AppCompatActivity {
+public class activity_themhoadon_nhap extends AppCompatActivity {
     EditText txtMa,txtTen,txtSize,txtGia,txtSoLuong;
     Button btnThemHang;
 
@@ -17,13 +17,13 @@ public class activity_themhang extends AppCompatActivity {
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hang);
+        setContentView(R.layout.activity_themhoadon_nhap);
         getView();
 
         btnThemHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity_themhang.this, activity_nhaphang.class);
+                Intent intent = new Intent(activity_themhoadon_nhap.this, activity_nhaphang.class);
                 startActivity(intent);
             }
         });

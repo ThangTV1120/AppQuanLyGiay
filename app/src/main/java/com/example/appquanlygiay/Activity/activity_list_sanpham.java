@@ -8,13 +8,13 @@ import android.widget.Button;
 
 import com.example.appquanlygiay.R;
 
-public class activity_list_nhaphang extends AppCompatActivity {
+public class activity_list_sanpham extends AppCompatActivity {
     Button btnThem;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_nhaphang);
+        setContentView(R.layout.activity_list_sanpham);
         getView();
 
         btnThem.setOnClickListener(new View.OnClickListener() {

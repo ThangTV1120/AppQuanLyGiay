@@ -15,7 +15,7 @@ import com.example.appquanlygiay.R;
 
 import java.util.Calendar;
 
-public class activity_xuathang extends AppCompatActivity
+public class activity_themhoadon_xuat extends AppCompatActivity
 {
     ImageButton btnTimeXuat;
 
@@ -26,7 +26,7 @@ public class activity_xuathang extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_xuathang);
+        setContentView(R.layout.activity_themhoadon_xuat);
 
         btnTimeXuat=findViewById(R.id.buttonTimeXuatHang);
         textViewTimeXuat=findViewById(R.id.TextViewNgayLapHoaDonXuat);
@@ -36,7 +36,7 @@ public class activity_xuathang extends AppCompatActivity
         btnTimeXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity_xuathang.this,"Djfkd",Toast.LENGTH_LONG);
+                Toast.makeText(activity_themhoadon_xuat.this,"Djfkd",Toast.LENGTH_LONG);
                 final Calendar c = Calendar.getInstance();
 
                 int year = c.get(Calendar.YEAR);
@@ -45,7 +45,7 @@ public class activity_xuathang extends AppCompatActivity
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         // on below line we are passing context.
-                        activity_xuathang.this,
+                        activity_themhoadon_xuat.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
@@ -60,7 +60,7 @@ public class activity_xuathang extends AppCompatActivity
         btnXuatHoaDon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity_xuathang.this,MainActivity.class);
+                Intent intent = new Intent(activity_themhoadon_xuat.this,MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class activity_xuathang extends AppCompatActivity
         btnHuyXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity_xuathang.this,MainActivity.class);
+                Intent intent = new Intent(activity_themhoadon_xuat.this,MainActivity.class);
                 startActivity(intent);
             }
         });
