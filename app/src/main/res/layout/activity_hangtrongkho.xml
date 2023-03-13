@@ -23,7 +23,7 @@
             android:layout_centerInParent="true"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:src="@drawable/box_arrow" />
+            android:src="@drawable/ic_baseline_logout_24" />
 
     </RelativeLayout>
 

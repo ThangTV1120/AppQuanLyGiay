@@ -75,7 +75,7 @@ public class Login extends AppCompatActivity {
                     Intent intent = new Intent(Login.this,MainActivity.class);
                     intent.putExtra("TenNguoiSuDung",name);
 
-                    R.string.TKKH = "Tuấn";
+                   // R.string.TKKH = "Tuấn";
 
                     startActivity(intent);
                     break;
