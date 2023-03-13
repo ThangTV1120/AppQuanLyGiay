@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/txtMaSP"
+        android:hint="Mã sản phẩm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+    </EditText>
+
+    <EditText
+        android:id="@+id/txtTenSP"
+        android:hint="Tên sản phẩm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/txtMaSP">
+    </EditText>
+
+    <EditText
+        android:id="@+id/txtSize"
+        android:hint="Size"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/txtTenSP">
+    </EditText>
+
+    <EditText
+        android:id="@+id/txtGia"
+        android:hint ="Giá"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/txtSize">
+    </EditText>
+
+    <EditText
+        android:id="@+id/txtSoLuong"
+        android:hint="Số lượng"
+        android:layout_below="@id/txtGia"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+    </EditText>
+
+    <Button
+        android:id="@+id/btnXuatHang"
+        android:text="Xuất"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/txtSoLuong"
+        android:layout_marginTop="22dp"
+        android:layout_centerHorizontal="true">
+    </Button>
+</RelativeLayout>
