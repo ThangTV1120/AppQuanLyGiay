@@ -1,14 +1,18 @@
 package com.example.appquanlygiay.Activity;
 
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -18,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appquanlygiay.Database.Database;
 import com.example.appquanlygiay.Models.HoaDonNhap;
+import com.example.appquanlygiay.Models.User;
 import com.example.appquanlygiay.R;
 
 import java.util.ArrayList;
@@ -26,20 +31,21 @@ import java.util.Date;
 
 
 public class activity_themhoadon_nhap extends AppCompatActivity {
-    ImageButton TimeNhap;
+    ImageView TimeNhap;
 
     Button btnTaoHoaDon,btnHuyNhap;
+    EditText IDHoaDonnhap,NhaCC;
 
     TextView txtTimeNhap;
 
     ArrayList<HoaDonNhap> arrayHoaDonNhap;
 
-    Database databaseHoaDonNhap;
+    Database databaseHDNhap;
 
-    String idNhap,nhacc,nguoinhap;
+
 
     int SoLuongsp;
-    String datenhap;
+
 
 
     @Override
@@ -48,18 +54,13 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
         setContentView(R.layout.activity_themhoadon_nhap);
         getView();
         arrayHoaDonNhap = new ArrayList<>();
-        databaseHoaDonNhap = new Database(activity_themhoadon_nhap.this,"HoaDonNhap.sqlite",null,1);
+        databaseHDNhap = new Database(activity_themhoadon_nhap.this,"QuanLyGiay.sqlite",null,1);
 
-        databaseHoaDonNhap.QueryData("CREATE TABLE IF NOT EXISTS HoaDonNhap (idNhap VARCHAR(30) primary key, NguoiNhap NVARCHAR(30),"
-                + "Nhacc NVARCHAR(50)),NgayNhap Date ," +"SoSanPham INTERGER "+ "TongTien INTERGER "
-                +"TKDN VARCHAR(30)"+"TKDN FOREIGN KEY (TKDN) REFERENCES User(TKDN)");
+        databaseHDNhap.QueryData("CREATE TABLE IF NOT EXISTS HoaDonNhap (idHoaDon VARCHAR(30) PRIMARY KEY,"
+                + "Nhacc NVARCHAR(50),NgayNhap Date ,SoSanPham INTEGER,TongTien DOUBLE "
+                +",TKDN VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
+//        CREATE TABLE IF NOT EXISTS HoaDonNhap (idNhap VARCHAR(30) PRIMARY KEY, NguoiNhap VARCHAR(30),Nhacc VARCHAR(50),NgayNhap Date ,SoSanPham INT,TongTien double,TKDN VARCHAR(30),FOREIGN KEY (TKDN) REFERENCES User(TKDN))
 
-        idNhap = getIntent().getStringExtra("idNhap");
-        nguoinhap = getIntent().getStringExtra("nguoinhap");
-        nhacc = getIntent().getStringExtra("nhacc");
-        datenhap =getIntent().getStringExtra("datenhap");
-
-        txtTimeNhap.setText(datenhap);
 
 
         TimeNhap.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +77,10 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
-                                txtTimeNhap.setText(dayy+" / "+monthh+" / "+ yearr);
+                                monthh=monthh+1;
+                                txtTimeNhap.setText(dayy+"/"+monthh+"/"+ yearr);
+//                                Toast.makeText(activity_themhoadon_nhap.this, txtTimeNhap.getText().toString(), Toast.LENGTH_SHORT).show();
+
                             }
                         } ,
                         year, month, day);
@@ -86,8 +90,46 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
 
         btnTaoHoaDon.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(activity_themhoadon_nhap.this, activity_nhaphang.class);
-                startActivity(intent);
+                String idHoaDon,nhacc,username,datenhap;
+                idHoaDon = IDHoaDonnhap.getText().toString();
+                nhacc = NhaCC.getText().toString();
+                username=getIntent().getStringExtra("TKDN");
+                datenhap=txtTimeNhap.getText().toString();
+                Date datehientai=null,date = null;
+               // Toast.makeText(activity_themhoadon_nhap.this, idHoaDon+ "  "+nhacc+" "+datenhap, Toast.LENGTH_SHORT).show();
+                if(idHoaDon.equals("")||nhacc.equals("")||datenhap.equals("")){
+                    Toast.makeText(activity_themhoadon_nhap.this, "Vui lòng điền đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    try {
+                        date =new java.text.SimpleDateFormat("dd/MM/yyyy").parse(datenhap);
+                    }catch (ParseException e){
+                    e.printStackTrace();
+                    };
+datehientai=new Date();
+                    if(date.after(datehientai)){
+                        Toast.makeText(activity_themhoadon_nhap.this,"Ngay nhap ko dc qua ngay hien tai",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        ContentValues values=new ContentValues();
+                        values.put("idHoaDon",idHoaDon);
+                        values.put("Nhacc",nhacc);
+                        values.put("NgayNhap",datenhap);
+                        values.put("SoSanPham",0);
+                        values.put("TongTien",0);
+                        values.put("TKDN",username);
+                        // databaseHDNhap.insertData("HoaDonNhap",values);
+
+                        Intent intent = new Intent(activity_themhoadon_nhap.this, activity_list_sanpham_nhap.class);
+                        intent.putExtra("idHoaDon",idHoaDon);
+                        intent.putExtra("TKDN",username);
+                        Toast.makeText(activity_themhoadon_nhap.this, "Tạo hóa đơn thành công", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                    }
+
+                }
+
             }
         });
 
@@ -100,11 +142,11 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
     }
 
     public void getData() throws ParseException {
-        Cursor dataHoaDonNhap= databaseHoaDonNhap.GetData("Select * from HoaDonNhap");
+        Cursor dataHoaDonNhap= databaseHDNhap.GetData("Select * from HoaDonNhap");
         arrayHoaDonNhap.clear();
         while (dataHoaDonNhap.moveToNext()){
             DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
-            String idnhap = dataHoaDonNhap.getString(0);
+            String idHoaDon = dataHoaDonNhap.getString(0);
             String nguoinhap = dataHoaDonNhap.getString(1);
             String nhacc = dataHoaDonNhap.getString(2);
             String day =dataHoaDonNhap.getString(3);
@@ -112,7 +154,7 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
             int tongsp = dataHoaDonNhap.getInt(4);
             int TongTien = dataHoaDonNhap.getInt(5);
 
-            arrayHoaDonNhap.add(new HoaDonNhap(idnhap,nguoinhap,nhacc,ngaynhap,tongsp,TongTien));
+//            arrayHoaDonNhap.add(new HoaDonNhap(idnhap,nguoinhap,nhacc,ngaynhap,tongsp,TongTien));
         }
         dataHoaDonNhap.close();
     }
@@ -123,5 +165,7 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
         btnTaoHoaDon=findViewById(R.id.buttonThemHoaDonNhap);
         btnHuyNhap=findViewById(R.id.buttonHuyTaoHoaDonNhap);
         txtTimeNhap=findViewById(R.id.TextNgayLapHoaDonNhap);
+        NhaCC=findViewById(R.id.editTextNhaCungCap);
+        IDHoaDonnhap=findViewById(R.id.IDHoaDonNhap);
     }
 }

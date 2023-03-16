@@ -28,13 +28,12 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getView();
+
         arrayUser=new ArrayList<>();
 
         databaseUser =new Database(Login.this,"QuanLyGiay.sqlite",null,1);
-        databaseUser.QueryData("CREATE TABLE IF NOT EXISTS User (ID INTEGER  AUTOINCREMENT," +
-                "TKDN VARCHAR(30) PRIMARY KEY, MatKhau VARCHAR(30),Name NVARCHAR(50))");
-
+        databaseUser.QueryData("CREATE TABLE IF NOT EXISTS User (" + "TKDN VARCHAR(30) PRIMARY KEY, MatKhau VARCHAR(30),Name NVARCHAR(50))");
+        getView();
         TK=getIntent().getStringExtra("TK");
         MK=getIntent().getStringExtra("MK");
         TenDN.setText(TK);
@@ -42,19 +41,7 @@ public class Login extends AppCompatActivity {
         getData();
     }
 
-    public void getData(){
-        Cursor dataUser=databaseUser.GetData("SELECT * FROM User");
-        arrayUser.clear();
-        while(dataUser.moveToNext()){
-            int id=dataUser.getInt(0);
-            String TKDN=dataUser.getString(1);
-            String MatKhauDN=dataUser.getString(2);
-            String Name = dataUser.getString(3);
-            arrayUser.add(new User(id,TKDN,MatKhauDN,Name));
 
-        }
-    dataUser.close();
-    }
 
 
     public void onclickDN(View v){
@@ -65,16 +52,17 @@ public class Login extends AppCompatActivity {
         }
         else {
             Boolean trangthai=false;
-            String name;
+            String name,username;
             for(int i=0;i<arrayUser.size();i++){
                 if(tenDN.equals(arrayUser.get(i).getUsername())&&mkDN.equals(arrayUser.get(i).getPassword())){
                    // database.QueryData("UPDATE SET TrangThai=1");
                     name=arrayUser.get(i).getName();
+                    username=arrayUser.get(i).getUsername();
                     Toast.makeText(Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                     trangthai=true;
                     Intent intent = new Intent(Login.this,MainActivity.class);
                     intent.putExtra("TenNguoiSuDung",name);
-
+                    intent.putExtra("TKDN",username);
                    // R.string.TKKH = "Tuấn";
 
                     startActivity(intent);
@@ -97,6 +85,19 @@ public class Login extends AppCompatActivity {
     public void onclickquenMK(View v){
         Intent intent=new Intent(Login.this, activity_quenMK.class);
         startActivity(intent);
+    }
+    public void getData(){
+        Cursor dataUser=databaseUser.GetData("SELECT * FROM User");
+        arrayUser.clear();
+        while(dataUser.moveToNext()){
+//            int id=dataUser.getInt(0);
+            String TKDN=dataUser.getString(0);
+            String MatKhauDN=dataUser.getString(1);
+            String Name = dataUser.getString(2);
+            arrayUser.add(new User(TKDN,MatKhauDN,Name));
+
+        }
+        dataUser.close();
     }
     public void getView(){
         login=findViewById(R.id.btnDangNhap);

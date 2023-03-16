@@ -34,8 +34,8 @@ public class activity_hangtrongkho extends AppCompatActivity {
 
         idShoe = getIntent().getStringExtra("idShoe");
         nameShoe = getIntent().getStringExtra("NameShoe");
-        size = getIntent().getIntExtra(size);
-        price =getIntent().getIntExtra(price);
+        //size = getIntent().getIntExtra(size);
+       // price =getIntent().getIntExtra(price);
     }
     public void getData() throws ParseException {
         Cursor dataShoes= databaseShoes.GetData("Select * from Shoes");

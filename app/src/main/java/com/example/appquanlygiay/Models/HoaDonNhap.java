@@ -3,7 +3,7 @@ package com.example.appquanlygiay.Models;
 import java.util.Date;
 
 public class HoaDonNhap {
-    String idNhap,nhacc,nguoinhap;
+    String idHoaDon,nhacc,nguoinhap;
 
     int SoLuongsp;
     Date datenhap;
@@ -13,9 +13,9 @@ public class HoaDonNhap {
     public HoaDonNhap() {
     }
 
-    public HoaDonNhap(String id,String nguoinhap, String nhacc  , Date datenhap,int SoLuongsp, int TongTienNhap) {
-        this.idNhap=id;
-        this.nguoinhap =  nguoinhap;
+    public HoaDonNhap(String id, String nhacc  , Date datenhap,int SoLuongsp, int TongTienNhap) {
+        this.idHoaDon=id;
+//        this.nguoinhap =  nguoinhap;
         this.nhacc = nhacc;
         this.datenhap = datenhap;
         this.SoLuongsp=SoLuongsp;
@@ -23,11 +23,11 @@ public class HoaDonNhap {
     }
 
     public String getIdNhap() {
-        return idNhap;
+        return idHoaDon;
     }
 
     public void setIdNhap(String id) {
-        this.idNhap = id;
+        this.idHoaDon = id;
     }
 
     public String getNhacc() {
@@ -42,6 +42,10 @@ public class HoaDonNhap {
         return nguoinhap;
     }
 
+    public void setNguoinhap(String nguoinhap) {
+        this.nguoinhap = nguoinhap;
+    }
+
     public Date getDatenhap() {
         return datenhap;
     }
@@ -50,9 +54,6 @@ public class HoaDonNhap {
         this.datenhap = datenhap;
     }
 
-    public void setNguoinhap(String nguoinhap) {
-        this.nguoinhap = nguoinhap;
-    }
 
     public int getTongTienNhap() {
         return TongTienNhap;

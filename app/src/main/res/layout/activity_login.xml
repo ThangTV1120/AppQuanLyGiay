@@ -40,7 +40,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            >
 
             <EditText
                 android:id="@+id/editTextTenDN"
@@ -58,9 +59,8 @@
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/editTextTenDN"
-                android:layout_centerHorizontal="true"
+                android:layout_marginTop="11dp"
                 android:ems="10"
-                android:layout_marginTop="12dp"
                 android:hint="Mật khẩu"
                 android:inputType="textPassword"
                 android:textSize="35sp" />

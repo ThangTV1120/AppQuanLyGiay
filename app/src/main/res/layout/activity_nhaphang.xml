@@ -12,42 +12,49 @@
        android:id="@+id/txtMaSP"
        android:hint="Mã sản phẩm"
        android:layout_width="match_parent"
+       android:inputType="text"
        android:layout_height="60dp">
    </EditText>
 
   <EditText
-        android:id="@+id/txtTenSP"
-        android:hint="Tên sản phẩm"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/txtMaSP">
-    </EditText>
+      android:id="@+id/txtTenSP"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:inputType="text"
+      android:layout_below="@+id/txtMaSP"
+      android:layout_marginTop="2dp"
+      android:hint="Tên sản phẩm">
 
-    <EditText
-        android:id="@+id/txtSize"
-        android:hint="Size"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/txtTenSP">
-    </EditText>
+  </EditText>
 
-    <EditText
-        android:id="@+id/txtGia"
-        android:hint ="Giá"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/txtSize">
-    </EditText>
 
-    <EditText
-        android:id="@+id/txtSoLuong"
-        android:hint="Số lượng"
-        android:layout_below="@id/txtGia"
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-    </EditText>
+  <Spinner
+      android:id="@+id/ListSize"
 
-    <Button
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_below="@+id/txtTenSP"
+      android:layout_marginTop="1dp"
+      android:scrollbarSize="30dp"
+      tools:ignore="SpeakableTextPresentCheck" />
+
+  <EditText
+      android:id="@+id/txtSoLuong"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_below="@id/txtGia"
+      android:hint="Số lượng"
+      android:inputType="number"></EditText>
+
+  <EditText
+      android:id="@+id/txtGia"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_below="@id/ListSize"
+      android:hint="Giá"
+      android:inputType="number"></EditText>
+
+  <Button
         android:id="@+id/btnThemHang"
         android:text="Thêm"
         android:layout_width="100dp"

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         getView();
         String name =getIntent().getStringExtra("TenNguoiSuDung");
         TenNguoiSD.setText(name);
-
+        String username=getIntent().getStringExtra("TKDN");
 
 
 
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, activity_themhoadon_nhap.class);
+                intent.putExtra("TKDN",username);
                 startActivity(intent);
             }
         });

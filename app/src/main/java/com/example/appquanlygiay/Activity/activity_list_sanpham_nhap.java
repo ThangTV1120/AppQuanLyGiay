@@ -2,6 +2,7 @@ package com.example.appquanlygiay.Activity;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,10 @@ public class activity_list_sanpham_nhap extends AppCompatActivity {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(activity_list_sanpham_nhap.this, activity_nhaphang.class);
+                intent.putExtra("idHoaDon",getIntent().getStringExtra("idHoaDon"));
+                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
+                startActivity(intent);
             }
         });
 
