@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/txt_idHDNhap"
+            android:id="@+id/txt_idHDXuat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mã Hóa Đơn: "
@@ -22,41 +22,41 @@
             android:textSize="23dp" />
 
         <TextView
-            android:id="@+id/txtTongTienNhap"
+            android:id="@+id/txtTongTienXuat"
             android:layout_width="151dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_idHDNhap"
+            android:layout_below="@+id/txt_idHDXuat"
             android:layout_marginTop="20dp"
             android:text="TỔNG TIỀN: "
             android:textSize="17dp" />
 
         <TextView
-            android:id="@+id/txt_ngayNhap"
+            android:id="@+id/txt_ngayNhapXuat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="65dp"
             android:layout_marginTop="5dp"
-            android:layout_toEndOf="@+id/txt_idHDNhap"
+            android:layout_toEndOf="@+id/txt_idHDXuat"
             android:text="Ngày Nhập"
             android:textSize="17dp" />
 
         <TextView
-            android:id="@+id/txt_NhaCC"
+            android:id="@+id/txt_nguoimua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtTongTienNhap"
+            android:layout_below="@+id/txtTongTienXuat"
             android:layout_marginTop="22dp"
-            android:text="Nhà cung cấp"
+            android:text="Người mua"
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/txt_SOSPNhap"
+            android:id="@+id/txt_SOSPXuat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_idHDNhap"
+            android:layout_below="@+id/txt_idHDXuat"
             android:layout_marginStart="54dp"
             android:layout_marginTop="26dp"
-            android:layout_toEndOf="@+id/txtTongTienNhap"
+            android:layout_toEndOf="@+id/txtTongTienXuat"
             android:text="Số lượng mặt hàng"
             android:textSize="15dp" />
     </RelativeLayout>

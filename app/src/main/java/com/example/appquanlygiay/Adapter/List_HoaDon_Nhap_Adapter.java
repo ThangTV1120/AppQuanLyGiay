@@ -38,34 +38,34 @@ public class List_HoaDon_Nhap_Adapter extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    private class ViewHoler{
+    class ViewHoler{
         TextView maHD,ngayNhap,tongTien,SL,Nhacc;
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHoler viewHoler;
-        HoaDonNhap HD=HoaDonNhapSP.get(i);
+        HoaDonNhap HDNhap=HoaDonNhapSP.get(i);
         if(view==null){
             viewHoler = new ViewHoler();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);// chuyen file xml thanh file java
             view=inflater.inflate(R.layout.input_ds_hoadon_nhap,null);
             //anh xa
-            viewHoler.maHD=view.findViewById(R.id.txt_idHD);
-            viewHoler.tongTien=view.findViewById(R.id.txtTongTien);
+            viewHoler.maHD=view.findViewById(R.id.txt_idHDXuat);
+            viewHoler.tongTien=view.findViewById(R.id.txtTongTienXuat);
             viewHoler.ngayNhap=view.findViewById(R.id.txt_ngayNhap);
             viewHoler.Nhacc=view.findViewById(R.id.txt_NhaCC);
-            viewHoler.SL=view.findViewById(R.id.txt_SOSP);
+            viewHoler.SL=view.findViewById(R.id.txt_SOSPXuat);
             view.setTag(viewHoler);
         }
         else{
           viewHoler=(ViewHoler) view.getTag();
         }
-        String maHDNhap=HD.getIdHoaDonNhap();
-        String nhacc=HD.getNhacc();
-        String TongTien=Double.toString(HD.getTongTienNhap());
+        String maHDNhap=HDNhap.getIdHoaDonNhap();
+        String nhacc=HDNhap.getNhacc();
+        String TongTien=Double.toString(HDNhap.getTongTienNhap());
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String NgayNhap=dateFormat.format(HD.getDatenhap());
-        String SL=Integer.toString(HD.getSoLuongsp());
+        String NgayNhap=dateFormat.format(HDNhap.getDatenhap());
+        String SL=Integer.toString(HDNhap.getSoLuongsp());
         viewHoler.maHD.setText("Mã HD:"+maHDNhap);
         viewHoler.tongTien.setText("Tổng:"+TongTien);
         viewHoler.ngayNhap.setText("Date:"+NgayNhap);
