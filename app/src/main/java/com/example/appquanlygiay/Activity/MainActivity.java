@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.appquanlygiay.Database.Database;
 import com.example.appquanlygiay.R;
 
 public class MainActivity extends AppCompatActivity {
 //    Button ;
+    Database database;
     ImageView dangxuat, btt_hangTrongkho,btt_nhapHang,btt_xuatHang,btt_hoadonNhap,btt_hoadonXuat;
    TextView TenNguoiSD;
     @Override
@@ -23,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
         TenNguoiSD.setText(name);
         String username=getIntent().getStringExtra("TKDN");
 
-
-
+        database = new Database(MainActivity.this,"QuanLyGiay.sqlite",null,1);
+        database.QueryData(("CREATE TABLE IF NOT EXISTS HoaDonNhap (idHoaDonNhap VARCHAR(30),Nhacc NVARCHAR(50),NgayNhap Date ,SoSanPham INTEGER, "
+                +"TongTien DOUBLE,TKDN VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))"));
+        database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap (MaSP VARCHAR(30),TenSP NVARCHAR(40),Size INTEGER,Gia DOUBLE,SoLuong INTEGER,"
+                + "TKDN VARCHAR(30),idHoaDonNhap VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
 
 
@@ -39,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, activity_hangtrongkho.class);
+                intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
                 startActivity(intent);
             }
         });
@@ -47,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, activity_themhoadon_nhap.class);
                 intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
                 startActivity(intent);
             }
         });
@@ -54,10 +62,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, activity_themhoadon_xuat.class);
+                intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
                 startActivity(intent);
             }
         });
-
+        btt_hoadonNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, activity_list_hoadon_Nhap.class);
+                intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+                startActivity(intent);
+            }
+        });
     }
     public void getView(){
         dangxuat=findViewById(R.id.btt_DangXuat);

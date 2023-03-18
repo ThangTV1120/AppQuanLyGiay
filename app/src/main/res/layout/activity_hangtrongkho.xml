@@ -8,15 +8,30 @@
     android:orientation="vertical"
     android:layout_margin="3dp">
     <RelativeLayout
-        android:id="@+id/Header_hangtrongkho"
+        android:id="@+id/Header"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_alignParentRight="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/TenNguoiSD"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="18dp"
+            android:layout_toStartOf="@+id/btt_Out"
+            android:gravity="center_vertical"
+
+            android:text="Name "
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
         <ImageView
-            android:id="@+id/btt_DangXuat"
+            android:id="@+id/btt_Out"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
@@ -29,13 +44,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <EditText
             android:id="@+id/textTimKiemHang"
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:hint="Tìm kiếm...."
             android:inputType="textPersonName"
             android:textSize="35dp"
@@ -43,28 +58,28 @@
 
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/textTimKiemHang"
-
             android:layout_centerInParent="true"
+            android:layout_margin="7dp"
+
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
+            android:gravity="center">
 
             <RadioButton
                 android:id="@+id/btt_cao"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-
                 android:text="Giá từ cao xuống thấp"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck"
+                />
 
             <RadioButton
                 android:id="@+id/btt_thap"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
                 android:text="Giá từ thấp lên cao"
-
                 tools:ignore="TouchTargetSizeCheck" />
 
 
@@ -72,7 +87,7 @@
     </RelativeLayout>
 
     <ListView
-        android:id="@+id/listGiay"
+        android:id="@+id/listGiayTrongKho"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>

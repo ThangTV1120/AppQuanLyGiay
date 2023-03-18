@@ -2,8 +2,15 @@ package com.example.appquanlygiay.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.example.appquanlygiay.Database.Database;
 import com.example.appquanlygiay.Models.HoaDonNhap;
@@ -21,21 +28,37 @@ public class activity_hangtrongkho extends AppCompatActivity {
     int size,price;
     ArrayList<Shoes> arrayShoes;
     Database databaseShoes;
+    ImageView Out;
+    TextView TenNguoiSD;
+    ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangtrongkho);
         arrayShoes = new ArrayList<>();
-        databaseShoes = new Database(activity_hangtrongkho.this,"Shoes.sqlite",null,1);
-
-        databaseShoes.QueryData("CREATE TABLE IF NOT EXISTS Shoes (idShoe VARCHAR(30) primary key, NameShoe NVARCHAR(30),"
-                +"Size INTERGER "+ "Price INTERGER ");
-
+        databaseShoes = new Database(activity_hangtrongkho.this,"QuanLyGiay.sqlite",null,1);
+        databaseShoes.QueryData("CREATE TABLE IF NOT EXISTS Shoes (idShoe VARCHAR(30) PRIMARY KEY, NameShoe NVARCHAR(30),Size INTERGER ,"+ "Gia DOUBLE )");
+        getView();
         idShoe = getIntent().getStringExtra("idShoe");
         nameShoe = getIntent().getStringExtra("NameShoe");
         //size = getIntent().getIntExtra(size);
        // price =getIntent().getIntExtra(price);
+        String name =getIntent().getStringExtra("TenNguoiSuDung");
+        TenNguoiSD.setText(name);
+        String tkdn=getIntent().getStringExtra("TKDN");
+
+
+
+        Out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(activity_hangtrongkho.this, MainActivity.class);
+                intent.putExtra("TKDN",tkdn);
+                intent.putExtra("TenNguoiSuDung",name);
+                startActivity(intent);
+            }
+        });
     }
     public void getData() throws ParseException {
         Cursor dataShoes= databaseShoes.GetData("Select * from Shoes");
@@ -50,5 +73,11 @@ public class activity_hangtrongkho extends AppCompatActivity {
             arrayShoes.add(new Shoes(idShoe,name,size,price));
         }
         dataShoes.close();
+    }
+
+    public void getView(){
+        lv=findViewById(R.id.listGiayTrongKho);
+        Out=findViewById(R.id.btt_Out);
+        TenNguoiSD=findViewById(R.id.TenNguoiSD);
     }
 }

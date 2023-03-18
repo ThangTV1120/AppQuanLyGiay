@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.activity_dangky">
+    tools:context=".Activity.activity_dangky"
+    android:background="@drawable/back_ground">
 
 
     <LinearLayout
         android:layout_width="389dp"
-        android:layout_height="430dp"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical"
@@ -25,16 +26,17 @@
             android:layout_height="wrap_content"
             android:text="Đăng Ký"
             android:textAllCaps="false"
-            android:textSize="60sp"
+            android:textSize="48dp"
             tools:layout_editor_absoluteX="92dp"
-            tools:layout_editor_absoluteY="113dp" />
+            tools:layout_editor_absoluteY="113dp"
+            android:layout_marginBottom="13dp"/>
 
         <EditText
             android:id="@+id/editTextHoTenDK"
             android:layout_width="389dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:hint="Nhập họ tên"
             android:inputType="textPersonName"
             android:textSize="28sp" />

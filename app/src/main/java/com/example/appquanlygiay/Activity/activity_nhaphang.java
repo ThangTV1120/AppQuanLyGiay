@@ -28,8 +28,8 @@ import java.util.ArrayList;
 public class activity_nhaphang extends AppCompatActivity {
     EditText txtMa,txtTen,txtGia,txtSoLuong;
     Spinner spinnerSize;
-    Button btnThemHang;
-    String idHoaDon,nhacc,username,size;
+    Button btnThemHang,btnHuyThemHang;
+    String idHoaDonNhap,nhacc,username,size;
     String sizeString[]={"39","40","41","42"};
     int SoLuongsp;
     String datenhap;
@@ -45,40 +45,42 @@ public class activity_nhaphang extends AppCompatActivity {
         spinnerSize.setAdapter(adapter);
         arrayHang=new ArrayList<>();
         databaseNhapHang = new Database(activity_nhaphang.this,"QuanLyGiay.sqlite",null,1);
-        databaseNhapHang.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap (MaSP VARCHAR(30),TenSP NVARCHAR(40),Size INTEGER,Gia DOUBLE,SoLuong INTEGER,"
-                + "TKDN VARCHAR(30),idHoaDon VARCHAR(30),"+"FOREIGN KEY (idHoaDon) REFERENCES HoaDonNhap(idHoaDon),FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
+//        databaseNhapHang.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap (MaSP VARCHAR(30),TenSP NVARCHAR(40),Size INTEGER,Gia DOUBLE,SoLuong INTEGER,"
+//                + "TKDN VARCHAR(30),idHoaDonNhap VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
         spinnerSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     int index=spinnerSize.getSelectedItemPosition();
                     size=sizeString[index];
-                Toast.makeText(activity_nhaphang.this,"1" , Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
-        idHoaDon=getIntent().getStringExtra("idHoaDon");
+        idHoaDonNhap=getIntent().getStringExtra("idHoaDonNhap");
         username=getIntent().getStringExtra("TKDN");
         btnThemHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String tensp=txtTen.getText().toString().trim();
                 String gia=txtGia.getText().toString();
-                String masp=txtMa.getText().toString().trim();
+                String masp=txtMa.getText().toString();
                 String soluong=txtSoLuong.getText().toString();
                 if(masp.equals("")||tensp.equals("")||gia.equals("")||soluong.equals("")){
-                    Toast.makeText(activity_nhaphang.this, "Vui long nhap du thong tin san pham", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity_nhaphang.this, "Vui lòng nhập đủ thông tin sản phẩm", Toast.LENGTH_SHORT).show();
                 }
                 else{
                 Integer s=Integer.valueOf(size);
                 double dongia=Double.parseDouble(gia);
                 Integer sl=Integer.valueOf(soluong);
+
                 String tkdn=username;
-                    Cursor hang = databaseNhapHang.GetData_Condition("SELECT MaSP FROM ChiTietHoaDonNhap WHERE MaSP=? AND TKDN=?",new String[]{masp,tkdn});
+                String idHD=idHoaDonNhap;
+
+                    Cursor hang = databaseNhapHang.GetData_Condition("SELECT MaSP FROM ChiTietHoaDonNhap WHERE MaSP=? AND TKDN=? AND idHoaDonNhap=? ",new String[]{masp,tkdn,idHD});
                     if(hang!=null && hang.moveToNext()){
-                        Toast.makeText(activity_nhaphang.this,"Ma dang nhap da ton tai",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity_nhaphang.this,"Mã sản phẩm đã tồn tại",Toast.LENGTH_SHORT).show();
                         hang.close();
                     }
                     else{
@@ -89,14 +91,42 @@ public class activity_nhaphang extends AppCompatActivity {
                         values.put("Gia",dongia);
                         values.put("SoLuong",sl);
                         values.put("TKDN",username);
-                        values.put("idHoaDon",idHoaDon);
+                        values.put("idHoaDonNhap",idHoaDonNhap);
                         databaseNhapHang.insertData("ChiTietHoaDonNhap",values);
+                        Cursor cursor = databaseNhapHang.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonNhap Where TKDN=? AND idHoaDonNhap=? GROUP BY(TKDN)",new String[]{tkdn,idHD} );
+                       double tong=0;
+                        int soSP=0;
+                        while(cursor.moveToNext()){
+                            soSP= Integer.valueOf(cursor.getString(0));
+                            tong=Double.parseDouble(cursor.getString(1));
+                        }
+                        cursor.close();
+                       // Cursor soSP = databaseNhapHang.GetData_Condition("Select count(MaSP) FROM ChiTietHoaDonNhap Where TKDN=? AND idHoaDonNhap=? GROUP BY(TKDN)",new String[]{tkdn,idHD} );
+                        //double tong = Double.parseDouble(tongtien);
+
+                        ContentValues hoadon=new ContentValues();
+                        hoadon.put("TongTien",tong);
+                        hoadon.put("SoSanPham",soSP);
+                        databaseNhapHang.updateData("HoaDonNhap",hoadon,"TKDN=? AND idHoaDonNhap=? ",new String[]{tkdn,idHD});
                         Intent intent = new Intent(activity_nhaphang.this, activity_list_sanpham_nhap.class);
+                        intent.putExtra("idHoaDonNhap",idHoaDonNhap);
+                        intent.putExtra("TKDN",username);
+                        intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
                         startActivity(intent);
-                        Toast.makeText(activity_nhaphang.this, "Them Thanh cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity_nhaphang.this, "Thêm Thành Công", Toast.LENGTH_SHORT).show();
                     }
                 }
 
+            }
+        });
+        btnHuyThemHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_nhaphang.this, activity_list_sanpham_nhap.class);
+                intent.putExtra("idHoaDonNhap",idHoaDonNhap);
+                intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+                startActivity(intent);
             }
         });
     }
@@ -109,6 +139,7 @@ public class activity_nhaphang extends AppCompatActivity {
         txtGia=findViewById(R.id.txtGia);
         txtSoLuong=findViewById(R.id.txtSoLuong);
         btnThemHang=findViewById(R.id.btnThemHang);
+        btnHuyThemHang=findViewById(R.id.btnHuyThemHang);
     }
     public void getData(String username){
         Cursor cursor =databaseNhapHang.GetData_Condition("SELECT * FROM ChiTietHoaDonNhap WHERE TKDN=?",new String[]{username});
@@ -120,8 +151,8 @@ public class activity_nhaphang extends AppCompatActivity {
             double gia=cursor.getDouble(3);
             int soluong=cursor.getInt(4);
             String TKDN=cursor.getString(5);
-            String idHoaDon=cursor.getString(6);
-            arrayHang.add(new ChiTietHoaDonNhap(masp,tensp,size,gia,soluong,TKDN,idHoaDon));
+            String idHoaDonNhap=cursor.getString(6);
+            arrayHang.add(new ChiTietHoaDonNhap(masp,tensp,size,gia,soluong,TKDN,idHoaDonNhap));
         }
         cursor.close();
     }

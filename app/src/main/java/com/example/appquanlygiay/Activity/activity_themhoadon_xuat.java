@@ -43,7 +43,7 @@ public class activity_themhoadon_xuat extends AppCompatActivity
         setContentView(R.layout.activity_themhoadon_xuat);
         getView();
         arrayHoaDonXuat = new ArrayList<>();
-        databaseHoaDonXuat = new Database(activity_themhoadon_xuat.this,"HoaDonXuat.sqlite",null,1);
+        databaseHoaDonXuat = new Database(activity_themhoadon_xuat.this,"QuanLyGiay.sqlite",null,1);
 
         databaseHoaDonXuat.QueryData("CREATE TABLE IF NOT EXISTS HoaDonXuat (idXuat VARCHAR(30) primary key, NguoiNhap NVARCHAR(30),"
                 + "NguoiMua NVARCHAR(50)),NgayXuat Date ," +"SoSanPham INTERGER "+ "TongTien INTERGER "

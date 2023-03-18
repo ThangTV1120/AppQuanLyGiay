@@ -10,7 +10,7 @@
         android:layout_height="540dp">
 
         <ListView
-            android:id="@+id/listnhaphang"
+            android:id="@+id/listxuathang"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></ListView>
 

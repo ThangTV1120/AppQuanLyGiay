@@ -3,31 +3,46 @@ package com.example.appquanlygiay.Models;
 import java.util.Date;
 
 public class HoaDonNhap {
-    String idHoaDon,nhacc,nguoinhap;
+    String idHoaDonNhap,nhacc,nguoinhap,TKDN;
 
     int SoLuongsp;
     Date datenhap;
 
-    int TongTienNhap;
+    double TongTienNhap;
 
     public HoaDonNhap() {
     }
 
-    public HoaDonNhap(String id, String nhacc  , Date datenhap,int SoLuongsp, int TongTienNhap) {
-        this.idHoaDon=id;
+    public HoaDonNhap(String id, String nhacc  , Date datenhap,int SoLuongsp, double TongTienNhap,String TKDN) {
+        this.idHoaDonNhap=id;
 //        this.nguoinhap =  nguoinhap;
         this.nhacc = nhacc;
         this.datenhap = datenhap;
         this.SoLuongsp=SoLuongsp;
         this.TongTienNhap=TongTienNhap;
+        this.TKDN=TKDN;
+    }
+    public HoaDonNhap(String id, String nhacc  , Date datenhap,int SoLuongsp, double TongTienNhap){
+        this.idHoaDonNhap=id;
+        this.nhacc = nhacc;
+        this.datenhap = datenhap;
+        this.SoLuongsp=SoLuongsp;
+        this.TongTienNhap=TongTienNhap;
+    }
+    public String getTKDN() {
+        return TKDN;
     }
 
-    public String getIdNhap() {
-        return idHoaDon;
+    public void setTKDN(String TKDN) {
+        this.TKDN = TKDN;
     }
 
-    public void setIdNhap(String id) {
-        this.idHoaDon = id;
+    public String getIdHoaDonNhap() {
+        return idHoaDonNhap;
+    }
+
+    public void setIdHoaDonNhap(String idHoaDonNhap) {
+        this.idHoaDonNhap = idHoaDonNhap;
     }
 
     public String getNhacc() {
@@ -55,11 +70,11 @@ public class HoaDonNhap {
     }
 
 
-    public int getTongTienNhap() {
+    public double getTongTienNhap() {
         return TongTienNhap;
     }
 
-    public void setTongTienNhap(int tongTienNhap) {
+    public void setTongTienNhap(double tongTienNhap) {
         TongTienNhap = tongTienNhap;
     }
 

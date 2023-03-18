@@ -6,14 +6,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="380dp"
+        android:layout_marginTop="162dp"
         android:gravity="center"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
 
         <EditText
             android:id="@+id/IDHoaDonNhap"
@@ -21,9 +23,9 @@
             android:layout_height="60dp"
             android:layout_above="@+id/timeNhap"
             android:layout_marginBottom="7dp"
-            android:hint="Ma Hoa don"
-            android:textSize="35dp"
+            android:hint="Mã Hóa Đơn"
             android:inputType="text"
+            android:textSize="35dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
@@ -56,13 +58,12 @@
         </LinearLayout>
 
 
-
         <EditText
-            android:layout_marginTop="5dp"
             android:id="@+id/editTextNhaCungCap"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/timeNhap"
+            android:layout_marginTop="7dp"
             android:hint="Nhà cung cấp"
             android:inputType="textPersonName"
             android:textSize="35dp" />
@@ -71,8 +72,8 @@
             android:id="@+id/buttonThemHoaDonNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_below="@+id/editTextNhaCungCap"
+            android:layout_marginTop="10dp"
             android:text="Tạo hóa đơn"
             android:textSize="35sp" />
 
@@ -80,8 +81,8 @@
             android:id="@+id/buttonHuyTaoHoaDonNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_below="@+id/buttonThemHoaDonNhap"
+            android:layout_marginTop="10dp"
             android:text="Hủy"
             android:textSize="35sp" />
 

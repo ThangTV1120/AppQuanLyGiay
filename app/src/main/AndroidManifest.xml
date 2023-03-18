@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_icon_giay"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppQuanLyGiay"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+        <activity
+            android:name=".Activity.activity_list_hoadon_Xuat"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.DS_SP_TrongHD_Nhap"
+            android:exported="false"
+            android:label="Danh sách Hàng " >
+>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.activity_list_hoadon_Nhap"
+            android:exported="false"
+            android:label="Danh Sách Hóa Đơn Nhập" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Activity.activity_hangtrongkho"
             android:exported="false"
-            android:label="Hàng trong kho">
+            android:label="Hàng Trong Kho" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -26,7 +49,7 @@
         <activity
             android:name=".Activity.MainActivity"
             android:exported="false"
-            android:label="Trang chủ">
+            android:label="Trang chủ" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -34,7 +57,7 @@
         <activity
             android:name=".Activity.activity_quenMK"
             android:exported="false"
-            android:label="Quên mật khẩu">
+            android:label="Quên mật khẩu" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -42,17 +65,17 @@
         <activity
             android:name=".Activity.activity_dangky"
             android:exported="false"
-            android:label="Đăng ký">
+            android:label="Đăng ký" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Activity.Login"
-            android:exported="true"
-          >
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -63,34 +86,34 @@
         <activity
             android:name=".Activity.activity_themhoadon_xuat"
             android:exported="false"
-            android:label="Xuất Hàng">
+            android:label="Xuất Đơn Hàng" >
             <meta-data
                 android:name="android.app.lib_name"
-                android:value=""
-                />
+                android:value="" />
         </activity>
         <activity
             android:name=".Activity.activity_themhoadon_nhap"
             android:exported="false"
-            android:label="Nhập Hàng">>
+            android:label="Nhập Đơn Hàng" >
+            >
             <meta-data
                 android:name="android.app.lib_name"
-                android:value=""/>
+                android:value="" />
         </activity>
-
-        <activity android:name=".Activity.activity_list_sanpham_nhap"
+        <activity
+            android:name=".Activity.activity_list_sanpham_nhap"
             android:exported="false"
-            android:label="Danh sách nhập hàng ">
+            android:label="Danh sách Sản Phẩm " >
             <meta-data
                 android:name="android.app.lib_name"
-                android:value=""/>
+                android:value="" />
         </activity>
-
-        <activity android:name=".Activity.activity_nhaphang"
-            android:label="Thêm hàng ">
+        <activity
+            android:name=".Activity.activity_nhaphang"
+            android:label="Thêm Sản Phẩm " >
             <meta-data
                 android:name="android.app.lib_name"
-                android:value=""/>
+                android:value="" />
         </activity>
     </application>
 

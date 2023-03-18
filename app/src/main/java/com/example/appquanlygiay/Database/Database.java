@@ -46,10 +46,12 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database=getWritableDatabase();
         return database.insert(nameTable,null,valuse);
     }
+    // neu update dc thi tra ve gia tri lon hon 0
     public int updateData(String nameTabale,ContentValues values,String condition,String[] conditionArgs){
         SQLiteDatabase database=getWritableDatabase();
         return database.update(nameTabale,values,condition,conditionArgs);
     }
+   // neu update dc thi tra ve gia tri lon hon 0
     public int deleteData(String nameTabale,String condition,String[] conditionArgs){
         SQLiteDatabase database=getWritableDatabase();
         return database.delete(nameTabale,condition,conditionArgs);

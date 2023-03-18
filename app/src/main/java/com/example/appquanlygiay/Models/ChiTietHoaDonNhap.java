@@ -1,20 +1,20 @@
 package com.example.appquanlygiay.Models;
 
 public class ChiTietHoaDonNhap {
-    String IDShoe,idHoaDon,TenSP,TKDN;
+    String IDShoe,idHoaDonNhap,TenSP,TKDN;
     int Size, SoLuong;
     double Gia;
 
     public ChiTietHoaDonNhap() {
     }
 
-    public ChiTietHoaDonNhap(String IDShoe,String tensp, int size, double gia, int soLuong,String TKDN,String idHoaDon) {
+    public ChiTietHoaDonNhap(String IDShoe,String tensp, int size, double gia, int soLuong,String TKDN,String idHoaDonNhap) {
         this.TenSP=tensp;
         this.IDShoe = IDShoe;
         this.Size = size;
         this.Gia = gia;
         this.SoLuong = soLuong;
-        this.idHoaDon=idHoaDon;
+        this.idHoaDonNhap=idHoaDonNhap;
         this.TKDN=TKDN;
     }
 
@@ -23,12 +23,12 @@ public class ChiTietHoaDonNhap {
         return TenSP;
     }
 
-    public String getIdHoaDon() {
-        return idHoaDon;
+    public String getIdHoaDonNhap() {
+        return idHoaDonNhap;
     }
 
-    public void setIdHoaDon(String idHoaDon) {
-        this.idHoaDon = idHoaDon;
+    public void setIdHoaDonNhap(String idHoaDonNhap) {
+        this.idHoaDonNhap = idHoaDonNhap;
     }
 
     public String getTKDN() {

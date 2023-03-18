@@ -54,13 +54,25 @@
       android:hint="Giá"
       android:inputType="number"></EditText>
 
-  <Button
+    <Button
         android:id="@+id/btnThemHang"
-        android:text="Thêm"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_below="@id/txtSoLuong"
-        android:layout_marginTop="22dp"
-        android:layout_centerHorizontal="true">
-    </Button>
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:text="Thêm"
+        android:textSize="20dp"></Button>
+
+    <Button
+        android:id="@+id/btnHuyThemHang"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txtSoLuong"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_toEndOf="@+id/btnThemHang"
+        android:text="Hủy"
+        android:textSize="20dp" />
 </RelativeLayout>
