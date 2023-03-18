@@ -60,7 +60,7 @@ public class List_HoaDon_Xuat_Adapter extends BaseAdapter {
             //anh xa
             viewHoler.maHDXuat=convertView.findViewById(R.id.txt_idHDXuat);
             viewHoler.tongTienXuat=convertView.findViewById(R.id.txtTongTienXuat);
-            viewHoler.ngayXuat=convertView.findViewById(R.id.txt_ngayNhap);
+            viewHoler.ngayXuat=convertView.findViewById(R.id.txt_ngayNhapXuat);
             viewHoler.nguoimua=convertView.findViewById(R.id.txt_nguoimua);
             viewHoler.SLXuat=convertView.findViewById(R.id.txt_SOSPXuat);
             convertView.setTag(viewHoler);

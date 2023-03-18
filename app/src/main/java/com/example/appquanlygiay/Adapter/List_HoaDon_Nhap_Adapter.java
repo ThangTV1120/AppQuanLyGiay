@@ -50,11 +50,11 @@ public class List_HoaDon_Nhap_Adapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);// chuyen file xml thanh file java
             view=inflater.inflate(R.layout.input_ds_hoadon_nhap,null);
             //anh xa
-            viewHoler.maHD=view.findViewById(R.id.txt_idHDXuat);
-            viewHoler.tongTien=view.findViewById(R.id.txtTongTienXuat);
+            viewHoler.maHD=view.findViewById(R.id.txt_idHDNhap);
+            viewHoler.tongTien=view.findViewById(R.id.txtTongTienNhap);
             viewHoler.ngayNhap=view.findViewById(R.id.txt_ngayNhap);
             viewHoler.Nhacc=view.findViewById(R.id.txt_NhaCC);
-            viewHoler.SL=view.findViewById(R.id.txt_SOSPXuat);
+            viewHoler.SL=view.findViewById(R.id.txt_SOSPNhap);
             view.setTag(viewHoler);
         }
         else{
