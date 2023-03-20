@@ -93,7 +93,7 @@ public class activity_list_sanpham_nhap extends AppCompatActivity {
         idHD=arrayListSP.get(i).getIdHoaDonNhap();
         masp=arrayListSP.get(i).getIDShoe();
         Toast.makeText(this, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
-       database.deleteData("ChiTietHoaDonNhap","TKDN="+tkdn+" AND idHoaDonNhap=? AND MaSP=?",new String[]{idHD,masp});
+       database.deleteData("ChiTietHoaDonNhap","TKDN=? AND idHoaDonNhap=? AND MaSP=?",new String[]{tkdn,idHD,masp});
       // if(s>0) Toast.makeText(this, "True", Toast.LENGTH_SHORT).show();
         Cursor cursor = database.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonNhap Where TKDN=? AND idHoaDonNhap=? GROUP BY(TKDN)",new String[]{tkdn,idHD} );
         double tong=0;

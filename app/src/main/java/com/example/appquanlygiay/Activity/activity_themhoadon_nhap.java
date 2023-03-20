@@ -98,7 +98,7 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
                     Toast.makeText(activity_themhoadon_nhap.this, "Vui lòng điền đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Cursor cursor =databaseHDNhap.GetData_Condition("SELECT idHoaDonNhap FROM HoaDonNhap WHERE TKDN="+username+" AND idHoaDonNhap=?",new String[]{idHoaDonNhap});
+                    Cursor cursor =databaseHDNhap.GetData_Condition("SELECT idHoaDonNhap FROM HoaDonNhap WHERE TKDN='"+username+"' AND idHoaDonNhap=?",new String[]{idHoaDonNhap});
                     if(cursor!=null && cursor.moveToNext()){
                         Toast.makeText(activity_themhoadon_nhap.this, "Mã hóa đơn đã tồn tại", Toast.LENGTH_SHORT).show();
                         cursor.close();
