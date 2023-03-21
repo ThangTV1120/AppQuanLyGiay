@@ -8,6 +8,17 @@
     android:padding="20dp"
     tools:context=".Activity.activity_themhoadon_xuat">
 
+    <EditText
+        android:id="@+id/IDHoaDonXuat"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_above="@+id/buttonTimeXuatHang"
+        android:layout_marginBottom="7dp"
+        android:hint="Mã hóa đơn xuất"
+        android:inputType="text"
+        android:textSize="35dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <TextView
         android:id="@+id/TextViewNgayLapHoaDonXuat"
         android:layout_width="320dp"

@@ -38,7 +38,7 @@ public class activity_hangtrongkho extends AppCompatActivity {
         setContentView(R.layout.activity_hangtrongkho);
         arrayShoes = new ArrayList<>();
         databaseShoes = new Database(activity_hangtrongkho.this,"QuanLyGiay.sqlite",null,1);
-        databaseShoes.QueryData("CREATE TABLE IF NOT EXISTS Shoes (idShoe VARCHAR(30) PRIMARY KEY, NameShoe NVARCHAR(30),Size INTERGER ,"+ "Gia DOUBLE )");
+
         getView();
         idShoe = getIntent().getStringExtra("idShoe");
         nameShoe = getIntent().getStringExtra("NameShoe");

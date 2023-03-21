@@ -26,12 +26,25 @@ public class MainActivity extends AppCompatActivity {
         String username=getIntent().getStringExtra("TKDN");
 
         database = new Database(MainActivity.this,"QuanLyGiay.sqlite",null,1);
-        database.QueryData(("CREATE TABLE IF NOT EXISTS HoaDonNhap (idHoaDonNhap VARCHAR(30),Nhacc NVARCHAR(50),NgayNhap Date ,SoSanPham INTEGER, "
-                +"TongTien DOUBLE,TKDN VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))"));
-        database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap (MaSP VARCHAR(30),TenSP NVARCHAR(40),Size INTEGER,Gia DOUBLE,SoLuong INTEGER,"
-                + "TKDN VARCHAR(30),idHoaDonNhap VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
+        database.QueryData(("CREATE TABLE IF NOT EXISTS HoaDonNhap(idHoaDonNhap VARCHAR(30) primary key ,"
+                + "Nhacc NVARCHAR(50)" + ",NgayNhap Date ," + "SoSanPham INTEGER, "
+                +"TongTien DOUBLE," + "TKDN VARCHAR(30)," +"FOREIGN KEY (TKDN) REFERENCES User(TKDN))"));
 
+        database.QueryData("CREATE TABLE IF NOT EXISTS HoaDonXuat(idHoaDonXuat VARCHAR(30) primary key," +
+                "NguoiMua NVARCHAR(50)),NgayXuat Date ," +"SoSanPham INTERGER "+ "TongTien INTERGER "
+                +"TKDN VARCHAR(30)"+"TKDN FOREIGN KEY (TKDN) REFERENCES User(TKDN)");
+
+        database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap(MaSP VARCHAR(30),TenSP NVARCHAR(40)" +
+                ",Size INTEGER,Gia DOUBLE,SoLuong INTEGER," + "TKDN VARCHAR(30)," +
+                "idHoaDonNhap VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
+
+        database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonXuat (MaSP VARCHAR(30),TenSP NVARCHAR(40)" +
+                ",Size INTEGER,GiaBan DOUBLE,SoLuong INTEGER," + "TKDN VARCHAR(30)," +
+                "idHoaDonXuat VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
+
+        database.QueryData("CREATE TABLE IF NOT EXISTS Shoes (idShoe VARCHAR(30) PRIMARY KEY, NameShoe NVARCHAR(30),"
+                + "SoLuong INTERGER"+"Size INTERGER ,"+ "Gia DOUBLE )");
 
         dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override

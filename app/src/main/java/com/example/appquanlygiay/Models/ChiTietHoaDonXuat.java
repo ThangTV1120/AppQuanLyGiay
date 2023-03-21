@@ -1,18 +1,23 @@
 package com.example.appquanlygiay.Models;
 
 public class ChiTietHoaDonXuat {
-    String IDShoe,idXuat;
-    int Size, Gia, SoLuong;
+    String IDShoe, idHoaDonXuat, TKKH,TenSP;
+    int Size,  SoLuong;
+    double Gia;
 
     public ChiTietHoaDonXuat() {
     }
 
-    public ChiTietHoaDonXuat(String IDShoe, int size, int gia, int soLuong,String idXuat) {
+
+
+    public ChiTietHoaDonXuat(String IDShoe, String tenSP, int size, double gia, int soLuong, String idHoaDonXuat, String TKKH) {
         this.IDShoe = IDShoe;
-        this.Size = size;
-        this.Gia = gia;
-        this.SoLuong = soLuong;
-        this.idXuat=idXuat;
+        this.idHoaDonXuat = idHoaDonXuat;
+        this.TKKH = TKKH;
+        TenSP = tenSP;
+        Size = size;
+        Gia = gia;
+        SoLuong = soLuong;
     }
 
     public String getIDShoe() {
@@ -23,6 +28,30 @@ public class ChiTietHoaDonXuat {
         this.IDShoe = IDShoe;
     }
 
+    public String getIdHoaDonXuat() {
+        return idHoaDonXuat;
+    }
+
+    public void setIdHoaDonXuat(String idHoaDonXuat) {
+        this.idHoaDonXuat = idHoaDonXuat;
+    }
+
+    public String getTKKH() {
+        return TKKH;
+    }
+
+    public void setTKKH(String TKKH) {
+        this.TKKH = TKKH;
+    }
+
+    public String getTenSP() {
+        return TenSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        TenSP = tenSP;
+    }
+
     public int getSize() {
         return Size;
     }
@@ -31,7 +60,7 @@ public class ChiTietHoaDonXuat {
         Size = size;
     }
 
-    public int getGia() {
+    public double getGia() {
         return Gia;
     }
 

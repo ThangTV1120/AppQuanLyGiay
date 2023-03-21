@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,12 +28,12 @@ import java.util.Date;
 public class activity_themhoadon_xuat extends AppCompatActivity
 {
     ImageButton btnTimeXuat;
-
     Button btnXuatHoaDon,btnHuyXuat;
     TextView textViewTimeXuat;
+
+    EditText txtidHoaDonXuat,txtNguoimua;
     String idXuat, nguoimua, nguoinhap;
     String datexuat;
-
     int TongTienXuat;
     ArrayList<HoaDonXuat> arrayHoaDonXuat;
     Database databaseHoaDonXuat;
@@ -99,24 +100,10 @@ public class activity_themhoadon_xuat extends AppCompatActivity
 
 
     }
-    public void getData() throws ParseException {
-        Cursor dataHoaDonXuat= databaseHoaDonXuat.GetData("Select * from HoaDonXuat");
-        arrayHoaDonXuat.clear();
-        while (dataHoaDonXuat.moveToNext()){
-            DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
-            String idXuat = dataHoaDonXuat.getString(0);
-            String nguoinhap = dataHoaDonXuat.getString(1);
-            String nguoimua = dataHoaDonXuat.getString(2);
-            String day =dataHoaDonXuat.getString(3);
-            Date ngaynhap =df.parse(day) ;
-            int tongsp = dataHoaDonXuat.getInt(4);
-            int TongTien = dataHoaDonXuat.getInt(5);
 
-            arrayHoaDonXuat.add(new HoaDonXuat(idXuat,nguoinhap,nguoimua,ngaynhap,tongsp,TongTien));
-        }
-        dataHoaDonXuat.close();
-    }
     public void getView(){
+        txtidHoaDonXuat=findViewById(R.id.IDHoaDonXuat);
+        txtNguoimua=findViewById(R.id.editTextNguoiMua);
         btnTimeXuat=findViewById(R.id.buttonTimeXuatHang);
         textViewTimeXuat=findViewById(R.id.TextViewNgayLapHoaDonXuat);
         btnXuatHoaDon=findViewById(R.id.buttonXuatHoaDon);
