@@ -72,7 +72,8 @@ public class activity_nhaphang extends AppCompatActivity {
                 if(masp.equals("")||tensp.equals("")||gia.equals("")||soluong.equals("")){
                     Toast.makeText(activity_nhaphang.this, "Vui lòng nhập đủ thông tin sản phẩm", Toast.LENGTH_SHORT).show();
                 }
-                else{
+                else
+                {
                 Integer s=Integer.valueOf(size);
                 double dongia=Double.parseDouble(gia);
                 Integer sl=Integer.valueOf(soluong);

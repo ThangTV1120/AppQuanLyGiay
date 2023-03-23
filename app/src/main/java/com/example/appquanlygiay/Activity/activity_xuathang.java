@@ -90,7 +90,14 @@ public class activity_xuathang extends AppCompatActivity {
                         values.put("SoLuong", sl);
                         values.put("TKDN", username);
                         values.put("idHoaDonXuat", idHoaDonXuat);
-                        databaseHangTrongKho.GetData_Condition("UPDATE HangTrongKho SET SoLuong ='sl' , Gia='dongia' WHERE idHoaDonXuat =?", new String[]{idHoaDonXuat} );
+
+                        ContentValues valueUp = new ContentValues();
+                        values.put("Gia", dongia);
+                        values.put("SoLuong",sl);
+
+                        databaseHangTrongKho.updateData("HangTrongKho ", valueUp,"idHoaDonXuat",
+                                new String[]{sl.toString(), String.valueOf(dongia)} );
+
                         databaseXuatHang.insertData("ChiTietHoaDonXuat", values);
                         Cursor cursor = databaseXuatHang.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonNhap " +
                                 "Where TKDN=? AND idHoaDonNhap=? GROUP BY(TKDN)", new String[]{tkdn, idHD});
