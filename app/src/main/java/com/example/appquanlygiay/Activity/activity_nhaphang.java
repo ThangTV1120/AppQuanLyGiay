@@ -40,13 +40,15 @@ public class activity_nhaphang extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhaphang);
+
         ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,sizeString);
+
         getView();
         spinnerSize.setAdapter(adapter);
         arrayHang=new ArrayList<>();
+
         databaseNhapHang = new Database(activity_nhaphang.this,"QuanLyGiay.sqlite",null,1);
-//        databaseNhapHang.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap (MaSP VARCHAR(30),TenSP NVARCHAR(40),Size INTEGER,Gia DOUBLE,SoLuong INTEGER,"
-//                + "TKDN VARCHAR(30),idHoaDonNhap VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
+
         spinnerSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -70,7 +72,8 @@ public class activity_nhaphang extends AppCompatActivity {
                 if(masp.equals("")||tensp.equals("")||gia.equals("")||soluong.equals("")){
                     Toast.makeText(activity_nhaphang.this, "Vui lòng nhập đủ thông tin sản phẩm", Toast.LENGTH_SHORT).show();
                 }
-                else{
+                else
+                {
                 Integer s=Integer.valueOf(size);
                 double dongia=Double.parseDouble(gia);
                 Integer sl=Integer.valueOf(soluong);
@@ -94,7 +97,7 @@ public class activity_nhaphang extends AppCompatActivity {
                         values.put("idHoaDonNhap",idHoaDonNhap);
                         databaseNhapHang.insertData("ChiTietHoaDonNhap",values);
                         Cursor cursor = databaseNhapHang.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonNhap Where TKDN=? AND idHoaDonNhap=? GROUP BY(TKDN)",new String[]{tkdn,idHD} );
-                       double tong=0;
+                        double tong=0;
                         int soSP=0;
                         while(cursor.moveToNext()){
                             soSP= Integer.valueOf(cursor.getString(0));
