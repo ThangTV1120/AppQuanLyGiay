@@ -125,11 +125,12 @@ public class activity_nhaphang extends AppCompatActivity {
         btnHuyThemHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity_nhaphang.this, activity_list_sanpham_nhap.class);
-                intent.putExtra("idHoaDonNhap",idHoaDonNhap);
-                intent.putExtra("TKDN",username);
-                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
-                startActivity(intent);
+//                Intent intent = new Intent(activity_nhaphang.this, activity_list_sanpham_nhap.class);
+//                intent.putExtra("idHoaDonNhap",idHoaDonNhap);
+//                intent.putExtra("TKDN",username);
+//                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                startActivity(intent);
+                finish();
             }
         });
     }

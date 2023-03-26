@@ -34,8 +34,9 @@ public class activity_dangky extends AppCompatActivity {
         quaylai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(activity_dangky.this, Login.class);
-                startActivity(intent);
+//                Intent intent=new Intent(activity_dangky.this, Login.class);
+//                startActivity(intent);
+                finish();
             }
         });
         dangky.setOnClickListener(new View.OnClickListener() {

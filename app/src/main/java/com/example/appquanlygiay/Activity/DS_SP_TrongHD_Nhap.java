@@ -34,10 +34,11 @@ public class DS_SP_TrongHD_Nhap extends AppCompatActivity {
         out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(DS_SP_TrongHD_Nhap.this, activity_list_hoadon_Nhap.class);
-                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
-                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
-                startActivity(intent);
+//                Intent intent=new Intent(DS_SP_TrongHD_Nhap.this, activity_list_hoadon_Nhap.class);
+//                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
+//                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                startActivity(intent);
+                finish();
             }
         });
         hienthiDL();

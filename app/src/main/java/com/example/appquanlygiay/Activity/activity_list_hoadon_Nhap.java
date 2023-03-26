@@ -47,10 +47,11 @@ public class activity_list_hoadon_Nhap extends AppCompatActivity {
         dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(activity_list_hoadon_Nhap.this, MainActivity.class);
-                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
-                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
-                startActivity(intent);
+//                Intent intent=new Intent(activity_list_hoadon_Nhap.this, MainActivity.class);
+//                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
+//                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                startActivity(intent);
+                finish();
             }
         });
         try {

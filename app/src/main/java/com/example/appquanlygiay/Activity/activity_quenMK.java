@@ -61,8 +61,9 @@ public class activity_quenMK extends AppCompatActivity {
 
     }
     public void onclickQuayLaiMain(View v){
-        Intent intent=new Intent(activity_quenMK.this, Login.class);
-        startActivity(intent);
+//        Intent intent=new Intent(activity_quenMK.this, Login.class);
+//        startActivity(intent);
+        finish();
     }
     public void getView(){
         QuayLai=findViewById(R.id.btnQuayLaiQuenMK);

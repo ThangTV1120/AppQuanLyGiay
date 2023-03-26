@@ -89,8 +89,12 @@ public class activity_themhoadon_xuat extends AppCompatActivity
         btnHuyXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity_themhoadon_xuat.this,MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(activity_themhoadon_xuat.this,MainActivity.class);
+//                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
+//                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                startActivity(intent);
+                finish();
+
             }
         });
 

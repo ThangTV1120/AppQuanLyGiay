@@ -140,10 +140,11 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
 
         btnHuyNhap.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(activity_themhoadon_nhap.this,MainActivity.class);
-                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
-                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
-                startActivity(intent);
+//                Intent intent = new Intent(activity_themhoadon_nhap.this,MainActivity.class);
+//                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
+//                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                startActivity(intent);
+                finish();
             }
         });
     }

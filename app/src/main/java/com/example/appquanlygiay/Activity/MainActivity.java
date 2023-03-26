@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 +"TongTien DOUBLE," + "TKDN VARCHAR(30)," +"FOREIGN KEY (TKDN) REFERENCES User(TKDN))"));
 
         database.QueryData("CREATE TABLE IF NOT EXISTS HoaDonXuat(idHoaDonXuat VARCHAR(30) primary key," +
-                "NguoiMua NVARCHAR(50)),NgayXuat Date ," +"SoSanPham INTERGER "+ "TongTien INTERGER "
-                +"TKDN VARCHAR(30)"+"TKDN FOREIGN KEY (TKDN) REFERENCES User(TKDN)");
+                "NguoiMua NVARCHAR(50),NgayXuat Date ," +"SoSanPham INTERGER "+ "TongTien INTERGER, "
+                +"TKDN VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
         database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap(MaSP VARCHAR(30),TenSP NVARCHAR(40)" +
                 ",Size INTEGER,Gia DOUBLE,SoLuong INTEGER," + "TKDN VARCHAR(30)," +
@@ -49,8 +49,9 @@ public class MainActivity extends AppCompatActivity {
         dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+//                Intent intent=new Intent(MainActivity.this, Login.class);
+//                startActivity(intent);
+                finish();
             }
         });
         btt_hangTrongkho.setOnClickListener(new View.OnClickListener() {

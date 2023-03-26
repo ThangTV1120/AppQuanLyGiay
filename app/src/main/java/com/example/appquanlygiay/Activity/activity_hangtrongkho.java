@@ -53,10 +53,11 @@ public class activity_hangtrongkho extends AppCompatActivity {
         Out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(activity_hangtrongkho.this, MainActivity.class);
-                intent.putExtra("TKDN",tkdn);
-                intent.putExtra("TenNguoiSuDung",name);
-                startActivity(intent);
+//                Intent intent=new Intent(activity_hangtrongkho.this, MainActivity.class);
+//                intent.putExtra("TKDN",tkdn);
+//                intent.putExtra("TenNguoiSuDung",name);
+//                startActivity(intent);
+                finish();
             }
         });
     }
