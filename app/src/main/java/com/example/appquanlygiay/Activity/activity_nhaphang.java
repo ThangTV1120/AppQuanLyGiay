@@ -115,6 +115,7 @@ public class activity_nhaphang extends AppCompatActivity {
                         intent.putExtra("idHoaDonNhap",idHoaDonNhap);
                         intent.putExtra("TKDN",username);
                         intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                        finish();
                         startActivity(intent);
                         Toast.makeText(activity_nhaphang.this, "Thêm Thành Công", Toast.LENGTH_SHORT).show();
                     }
@@ -125,12 +126,13 @@ public class activity_nhaphang extends AppCompatActivity {
         btnHuyThemHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(activity_nhaphang.this, activity_list_sanpham_nhap.class);
-//                intent.putExtra("idHoaDonNhap",idHoaDonNhap);
-//                intent.putExtra("TKDN",username);
-//                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
-//                startActivity(intent);
+                Intent intent = new Intent(activity_nhaphang.this, activity_list_sanpham_nhap.class);
+                intent.putExtra("idHoaDonNhap",idHoaDonNhap);
+                intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
                 finish();
+                startActivity(intent);
+//                finish();
             }
         });
     }

@@ -127,6 +127,7 @@ public class activity_themhoadon_nhap extends AppCompatActivity {
                             intent.putExtra("idHoaDonNhap",idHoaDonNhap);
                             intent.putExtra("TKDN",username);
                             intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                            finish();
                             Toast.makeText(activity_themhoadon_nhap.this, "Tạo hóa đơn thành công", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         }
