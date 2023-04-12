@@ -53,7 +53,6 @@ public class activity_themhoadon_xuat extends AppCompatActivity
         TimeXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity_themhoadon_xuat.this,"Djfkd",Toast.LENGTH_LONG);
                 final Calendar c = Calendar.getInstance();
 
                 int year = c.get(Calendar.YEAR);
@@ -66,6 +65,7 @@ public class activity_themhoadon_xuat extends AppCompatActivity
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
+                                monthh=monthh+1;
                                 txtTimeXuat.setText(dayy+" / "+monthh+" / "+ yearr);
                             }
                         } ,

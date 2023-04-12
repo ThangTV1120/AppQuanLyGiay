@@ -28,13 +28,13 @@
         android:inputType="datetime"
         android:textSize="35sp" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/buttonTimeXuatHang"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:layout_marginRight="5dp"
         android:layout_toRightOf="@id/TextViewNgayLapHoaDonXuat"
-        android:src="@drawable/calendar"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        android:src="@drawable/calendar" />
 
     <EditText
         android:id="@+id/editTextNguoiMua"
