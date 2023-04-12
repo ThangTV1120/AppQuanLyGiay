@@ -1,6 +1,7 @@
 package com.example.appquanlygiay.Activity;
 
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,16 +29,16 @@ import java.util.Date;
 
 public class activity_themhoadon_xuat extends AppCompatActivity
 {
-    ImageButton btnTimeXuat;
+    ImageView TimeXuat;
     Button btnXuatHoaDon,btnHuyXuat;
-    TextView textViewTimeXuat;
 
-    EditText txtidHoaDonXuat,txtNguoimua;
-    String idXuat, nguoimua, nguoinhap;
-    String datexuat;
+    EditText IDHoaDonXuat,NguoiMua;
+    TextView txtTimeXuat;
     int TongTienXuat;
     ArrayList<HoaDonXuat> arrayHoaDonXuat;
-    Database databaseHoaDonXuat;
+    Database databaseHDXuat;
+
+    int SoLuongsp;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -44,17 +46,11 @@ public class activity_themhoadon_xuat extends AppCompatActivity
         setContentView(R.layout.activity_themhoadon_xuat);
         getView();
         arrayHoaDonXuat = new ArrayList<>();
-        databaseHoaDonXuat = new Database(activity_themhoadon_xuat.this,"QuanLyGiay.sqlite",null,1);
-
-        idXuat = getIntent().getStringExtra("idNhap");
-        nguoinhap = getIntent().getStringExtra("nguoinhap");
-        nguoimua = getIntent().getStringExtra("nguoimua");
-        datexuat =getIntent().getStringExtra("datenhap");
-
-        textViewTimeXuat.setText(datexuat);
+        databaseHDXuat = new Database(activity_themhoadon_xuat.this,"QuanLyGiay.sqlite",null,1);
 
 
-        btnTimeXuat.setOnClickListener(new View.OnClickListener() {
+
+        TimeXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity_themhoadon_xuat.this,"Djfkd",Toast.LENGTH_LONG);
@@ -70,7 +66,7 @@ public class activity_themhoadon_xuat extends AppCompatActivity
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
-                                textViewTimeXuat.setText(dayy+" / "+monthh+" / "+ yearr);
+                                txtTimeXuat.setText(dayy+" / "+monthh+" / "+ yearr);
                             }
                         } ,
                         year, month, day);
@@ -80,15 +76,61 @@ public class activity_themhoadon_xuat extends AppCompatActivity
 
         btnXuatHoaDon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity_themhoadon_xuat.this,MainActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                String idHoaDonXuat,nguoimua,username,datexuat;
+                idHoaDonXuat = IDHoaDonXuat.getText().toString();
+                nguoimua = NguoiMua.getText().toString();
+                username=getIntent().getStringExtra("TKDN");
+                datexuat=txtTimeXuat.getText().toString();
+                Date datehientai=null,date = null;
+                // Toast.makeText(activity_themhoadon_nhap.this, idHoaDonNhap+ "  "+nhacc+" "+datenhap, Toast.LENGTH_SHORT).show();
+                if(idHoaDonXuat.equals("")||nguoimua.equals("")||datexuat.equals("")){
+                    Toast.makeText(activity_themhoadon_xuat.this, "Vui lòng điền đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Cursor cursor =databaseHDXuat.GetData_Condition("SELECT idHoaDonXuat FROM HoaDonXuat WHERE TKDN='"+username+"' AND idHoaDonXuat=?",new String[]{idHoaDonXuat});
+                    if(cursor!=null && cursor.moveToNext()){
+                        Toast.makeText(activity_themhoadon_xuat.this, "Mã hóa đơn đã tồn tại", Toast.LENGTH_SHORT).show();
+                        cursor.close();
+                    }
+                    else{
+                        try {
+                            date =new java.text.SimpleDateFormat("dd/MM/yyyy").parse(datexuat);
+                        }catch (ParseException e){
+                            e.printStackTrace();
+                        };
+                        datehientai=new Date();
+                        if(date.after(datehientai)){
+                            Toast.makeText(activity_themhoadon_xuat.this,"Ngày xuất không được quá ngày hiện tại",Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            ContentValues values=new ContentValues();
+                            values.put("idHoaDonXuat",idHoaDonXuat);
+                            values.put("Nguoimua",nguoimua);
+                            values.put("NgayXuat",datexuat);
+                            values.put("SoSanPham",0);
+                            values.put("TongTien",0);
+                            values.put("TKDN",username);
+                            databaseHDXuat.insertData("HoaDonxuat",values);
+
+                            Intent intent = new Intent(activity_themhoadon_xuat.this, activity_list_sanpham_xuat.class);
+                            intent.putExtra("idHoaDonXuat",idHoaDonXuat);
+                            intent.putExtra("TKDN",username);
+                            intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+//                            finish();
+                            Toast.makeText(activity_themhoadon_xuat.this, "Tạo hóa đơn thành công", Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+                        }
+                    }
+
+
+                }
+
             }
         });
 
         btnHuyXuat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 //                Intent intent = new Intent(activity_themhoadon_xuat.this,MainActivity.class);
 //                intent.putExtra("TKDN",getIntent().getStringExtra("TKDN"));
 //                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
@@ -97,15 +139,30 @@ public class activity_themhoadon_xuat extends AppCompatActivity
 
             }
         });
+    }
+    public void getData() throws ParseException {
+        Cursor dataHoaDonXuat= databaseHDXuat.GetData("Select * from HoaDonXuat");
+        arrayHoaDonXuat.clear();
+        while (dataHoaDonXuat.moveToNext()){
+            DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
+            String idHoaDonXuat = dataHoaDonXuat.getString(0);
+            String nguoinhap = dataHoaDonXuat.getString(1);
+            String nhacc = dataHoaDonXuat.getString(2);
+            String day =dataHoaDonXuat.getString(3);
+            Date ngayxuat =df.parse(day) ;
+            int tongsp = dataHoaDonXuat.getInt(4);
+            int TongTien = dataHoaDonXuat.getInt(5);
 
-
+//            arrayHoaDonXuat.add(new HoaDonXuat(idnhap,nguoinhap,nhacc,ngaynhap,tongsp,TongTien));
+        }
+        dataHoaDonXuat.close();
     }
 
     public void getView(){
-        txtidHoaDonXuat=findViewById(R.id.IDHoaDonXuat);
-        txtNguoimua=findViewById(R.id.editTextNguoiMua);
-        btnTimeXuat=findViewById(R.id.buttonTimeXuatHang);
-        textViewTimeXuat=findViewById(R.id.TextViewNgayLapHoaDonXuat);
+        IDHoaDonXuat=findViewById(R.id.IDHoaDonXuat);
+        NguoiMua=findViewById(R.id.editTextNguoiMua);
+        TimeXuat=findViewById(R.id.buttonTimeXuatHang);
+        txtTimeXuat=findViewById(R.id.TextViewNgayLapHoaDonXuat);
         btnXuatHoaDon=findViewById(R.id.buttonXuatHoaDon);
         btnHuyXuat=findViewById(R.id.buttonHuyTaoHoaDonXuat);
     }
