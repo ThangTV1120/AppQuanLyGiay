@@ -74,14 +74,15 @@ public class activity_xuathang extends AppCompatActivity {
                     Integer sl = Integer.valueOf(soluong);
                     String tkdn = username;
                     String idHD = idHoaDonXuat;
-                    Cursor hang = databaseHangTrongKho.GetData_Condition("SELECT SoLuong FROM HangTrongKho WHERE MaSP=? "
-                            ,new String[]{ masp});
-                    int val = Integer.parseInt(hang.getString(0));
-                    if ((hang == null || val <sl)  && hang.moveToNext()) {
+//                    Cursor hang = databaseHangTrongKho.GetData_Condition("SELECT SoLuong FROM HangTrongKho WHERE MaSP=? "
+//                            ,new String[]{ masp});
+                    Cursor hang = databaseXuatHang.GetData_Condition("SELECT MaSP FROM ChiTietHoaDonXuat WHERE MaSP=? AND TKDN=? AND idHoaDonXuat=? ",new String[]{masp,tkdn,idHD});
+                  //  int val = Integer.parseInt(hang.getString(0));
+                    if ((hang != null )  && hang.moveToNext()) {
                         Toast.makeText(activity_xuathang.this, "Sản phẩm đã hết hàng ", Toast.LENGTH_SHORT).show();
                         hang.close();
                     } else {
-                        sl=val-sl;
+                       // sl=val-sl;
                         ContentValues values = new ContentValues();
                         values.put("MaSP", masp);
                         values.put("TenSP", tensp);
@@ -95,9 +96,8 @@ public class activity_xuathang extends AppCompatActivity {
                         values.put("Gia", dongia);
                         values.put("SoLuong",sl);
 
-                        databaseHangTrongKho.updateData("HangTrongKho ", valueUp,"idHoaDonXuat",
-                                new String[]{sl.toString(), String.valueOf(dongia)} );
-
+//                        databaseHangTrongKho.updateData("HangTrongKho ", valueUp,"idHoaDonXuat",
+//                                new String[]{sl.toString(), String.valueOf(dongia)} );
                         databaseXuatHang.insertData("ChiTietHoaDonXuat", values);
                         Cursor cursor = databaseXuatHang.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonXuat " +
                                 "Where TKDN=? AND idHoaDonXuat=? GROUP BY(TKDN)", new String[]{tkdn, idHD});
