@@ -2,33 +2,33 @@ package com.example.appquanlygiay.Models;
 
 public class Shoes {
     String idShoes, nameShoes;
-    int size,price;
+    int size,price,Soluong;
 
     public Shoes() {
     }
 
-    public Shoes(String id , String name, int size, int price)
-    {
-        this.idShoes=id;
-        this.nameShoes= name;
-        this.size=size;
-        this.price=price;
+    public Shoes(String idShoes, String nameShoes, int size, int price, int soluong) {
+        this.idShoes = idShoes;
+        this.nameShoes = nameShoes;
+        this.size = size;
+        this.price = price;
+        Soluong = soluong;
     }
 
-    public String getName() {
-        return nameShoes;
-    }
-
-    public void setName(String name) {
-        this.nameShoes = name;
-    }
-
-    public String getId() {
+    public String getIdShoes() {
         return idShoes;
     }
 
-    public void setId(String id) {
-        this.idShoes = id;
+    public void setIdShoes(String idShoes) {
+        this.idShoes = idShoes;
+    }
+
+    public String getNameShoes() {
+        return nameShoes;
+    }
+
+    public void setNameShoes(String nameShoes) {
+        this.nameShoes = nameShoes;
     }
 
     public int getSize() {
@@ -45,5 +45,13 @@ public class Shoes {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getSoluong() {
+        return Soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        Soluong = soluong;
     }
 }

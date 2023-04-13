@@ -34,7 +34,7 @@ public class activity_nhaphang extends AppCompatActivity {
     int SoLuongsp;
     String datenhap;
     ArrayList<ChiTietHoaDonNhap> arrayHang;
-    Database databaseNhapHang;
+    Database databaseNhapHang,databaseShoe;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class activity_nhaphang extends AppCompatActivity {
         arrayHang=new ArrayList<>();
 
         databaseNhapHang = new Database(activity_nhaphang.this,"QuanLyGiay.sqlite",null,1);
-
+        databaseShoe = new Database(activity_nhaphang.this,"QuanLyGiay.sqlite",null,1);
         spinnerSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -118,6 +118,30 @@ public class activity_nhaphang extends AppCompatActivity {
 //                        finish();
                         startActivity(intent);
                         Toast.makeText(activity_nhaphang.this, "Thêm Thành Công", Toast.LENGTH_SHORT).show();
+
+                        ContentValues update = new ContentValues();
+                        Cursor htk=databaseShoe.GetData_Condition("SELECT Count(isShoe) FROM Shoe",new String[]{});
+                        htk.moveToFirst();
+                        if(htk.getInt(0)==0)
+                        {
+                            update.put("idShoe",masp);
+                            update.put("nameShoe",tensp);
+                            update.put("size",s);
+                            update.put("prire",gia);
+                            update.put("SoLuong",soluong);
+                            databaseShoe.updateData("Shoes",update,"idShoe=?",new String[]{masp});
+                        }
+
+                        else
+                        {
+                            Cursor slsp = databaseShoe.GetData_Condition("SELECT SoLuong FROM Shoes where idShoe=?",new String[]{masp});
+                            slsp.moveToFirst();
+                            int soluongmoi=slsp.getInt(0)+sl;
+                            update.put("SoLuong",soluongmoi);
+                            databaseShoe.updateData("Shoes",update,"idShoe =?",new String[]{masp});
+
+                        }
+
                     }
                 }
 
