@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="20dp"
-    tools:context=".Activity.activity_themhoadon_xuat">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_marginTop="162dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
 
     <EditText
         android:id="@+id/IDHoaDonXuat"
@@ -28,13 +37,13 @@
         android:inputType="datetime"
         android:textSize="35sp" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/buttonTimeXuatHang"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:layout_marginRight="5dp"
         android:layout_toRightOf="@id/TextViewNgayLapHoaDonXuat"
-        android:src="@drawable/calendar"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        android:src="@drawable/calendar" />
 
     <EditText
         android:id="@+id/editTextNguoiMua"
@@ -61,5 +70,5 @@
         android:layout_below="@+id/buttonXuatHoaDon"
         android:text="Hủy"
         android:textSize="35sp" />
-
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

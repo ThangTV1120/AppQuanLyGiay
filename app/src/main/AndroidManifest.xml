@@ -103,14 +103,29 @@
         <activity
             android:name=".Activity.activity_list_sanpham_nhap"
             android:exported="false"
-            android:label="Danh sách Sản Phẩm " >
+            android:label="Danh sách Sản Phẩm Nhập " >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Activity.activity_nhaphang"
-            android:label="Thêm Sản Phẩm " >
+            android:label="Thêm Sản Phẩm Nhập" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.activity_list_sanpham_xuat"
+            android:exported="false"
+            android:label="Danh sách Sản Phẩm Xuất " >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.activity_xuathang"
+            android:label="Thêm Sản Phẩm Xuất " >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
