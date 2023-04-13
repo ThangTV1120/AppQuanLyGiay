@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 +"TongTien DOUBLE," + "TKDN VARCHAR(30)," +"FOREIGN KEY (TKDN) REFERENCES User(TKDN))"));
 
         database.QueryData("CREATE TABLE IF NOT EXISTS HoaDonXuat(idHoaDonXuat VARCHAR(30) primary key," +
-                "NguoiMua NVARCHAR(50),NgayXuat Date ," +"SoSanPham INTERGER "+ "TongTien INTERGER, "
+                "NguoiMua NVARCHAR(50),NgayXuat Date ," +"SoSanPham INTERGER "+ ",TongTien DOUBLE, "
                 +"TKDN VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
         database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonNhap(MaSP VARCHAR(30),TenSP NVARCHAR(40)" +
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 "idHoaDonNhap VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
         database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonXuat (MaSP VARCHAR(30),TenSP NVARCHAR(40)" +
-                ",Size INTEGER,GiaBan DOUBLE,SoLuong INTEGER," + "TKDN VARCHAR(30)," +
+                ",Size INTEGER,Gia DOUBLE,SoLuong INTEGER," + "TKDN VARCHAR(30)," +
                 "idHoaDonXuat VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
         database.QueryData("CREATE TABLE IF NOT EXISTS Shoes (idShoe VARCHAR(30) PRIMARY KEY, NameShoe NVARCHAR(30),"

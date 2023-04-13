@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class activity_xuathang extends AppCompatActivity {
     EditText txtMaXuat, txtTen, txtSize, txtGia, txtSoLuong;
-    Button btnXuatHang;
+    Button btnXuatHang,btnHuyThemHang;
     Spinner spinnerSize;
     ArrayList<ChiTietHoaDonXuat> arrayHangXuat;
     Database databaseXuatHang,databaseHangTrongKho;
@@ -99,8 +99,8 @@ public class activity_xuathang extends AppCompatActivity {
                                 new String[]{sl.toString(), String.valueOf(dongia)} );
 
                         databaseXuatHang.insertData("ChiTietHoaDonXuat", values);
-                        Cursor cursor = databaseXuatHang.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonNhap " +
-                                "Where TKDN=? AND idHoaDonNhap=? GROUP BY(TKDN)", new String[]{tkdn, idHD});
+                        Cursor cursor = databaseXuatHang.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonXuat " +
+                                "Where TKDN=? AND idHoaDonXuat=? GROUP BY(TKDN)", new String[]{tkdn, idHD});
                         double tong = 0;
                         int soSP = 0;
                         while (cursor.moveToNext()) {
@@ -114,19 +114,32 @@ public class activity_xuathang extends AppCompatActivity {
                         ContentValues hoadon = new ContentValues();
                         hoadon.put("TongTien", tong);
                         hoadon.put("SoSanPham", soSP);
-                        databaseXuatHang.updateData("HoaDonXuat", hoadon, "TKDN=? AND idHoaDonNhap=? ", new String[]{tkdn, idHD});
+                        databaseXuatHang.updateData("HoaDonXuat", hoadon, "TKDN=? AND idHoaDonXuat=? ", new String[]{tkdn, idHD});
 
                         Intent intent = new Intent(activity_xuathang.this, activity_list_sanpham_xuat.class);
-                        intent.putExtra("idHoaDonNhap", idHoaDonXuat);
+                        intent.putExtra("idHoaDonXuat", idHoaDonXuat);
                         intent.putExtra("TKDN", username);
                         intent.putExtra("TenNguoiSuDung", getIntent().getStringExtra("TenNguoiSuDung"));
+                        startActivity(intent);
+
                         startActivity(intent);
                         Toast.makeText(activity_xuathang.this, "Thêm Thành Công", Toast.LENGTH_SHORT).show();
                     }
 
-                    Intent intent = new Intent(activity_xuathang.this, activity_list_sanpham_xuat.class);
-                    startActivity(intent);
+
                 }
+            }
+        });
+        btnHuyThemHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_xuathang.this, activity_list_sanpham_xuat.class);
+                intent.putExtra("idHoaDonXuat",idHoaDonXuat);
+                intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+                finish();
+                startActivity(intent);
+//                finish();
             }
         });
     }
@@ -148,13 +161,15 @@ public class activity_xuathang extends AppCompatActivity {
         cursor.close();
     }
 
+
     public void getView(){
         txtMaXuat = findViewById(R.id.txtMaSP);
         txtTen = findViewById(R.id.txtTenSP);
-        txtSize = findViewById(R.id.txtSize);
+        spinnerSize = findViewById(R.id.ListSize);
         txtSoLuong = findViewById(R.id.txtSoLuong);
         txtGia = findViewById(R.id.txtGia);
         btnXuatHang = findViewById(R.id.btnXuatHang);
+        btnHuyThemHang=findViewById(R.id.btnHuyThemHang);
     }
 
     public String Size(int index){

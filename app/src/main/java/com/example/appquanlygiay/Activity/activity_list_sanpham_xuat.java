@@ -37,13 +37,14 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
         database = new Database(activity_list_sanpham_xuat.this, "QuanLyGiay.sqlite", null, 1);
         arrayListSP = new ArrayList<>();
         adapter = new List_SanPham_Xuat_Adapter(activity_list_sanpham_xuat.this, R.layout.sanpham_input_output, arrayListSP);
+        getView();
         lv.setAdapter(adapter);
         btnXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity_list_sanpham_xuat.this, activity_xuathang.class);
                 intent.putExtra("idHoaDonXuat", getIntent().getStringExtra("idHoaDonXuat"));
-                intent.putExtra("TKKH", getIntent().getStringExtra("TKKH"));
+                intent.putExtra("TKDN", getIntent().getStringExtra("TKDN"));
                 intent.putExtra("TenNguoiSuDung", getIntent().getStringExtra("TenNguoiSuDung"));
 //                finish();
                 startActivity(intent);
@@ -54,7 +55,7 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity_list_sanpham_xuat.this, MainActivity.class);
-                intent.putExtra("TKKH", getIntent().getStringExtra("TKKH"));
+                intent.putExtra("TKDN", getIntent().getStringExtra("TKDN"));
                 intent.putExtra("TenNguoiSuDung", getIntent().getStringExtra("TenNguoiSuDung"));
                 finish();
                 startActivity(intent);
@@ -65,9 +66,9 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
     }
     public void hienthiDL(){
         String username,idHD;
-        username=getIntent().getStringExtra("TKKH");
+        username=getIntent().getStringExtra("TKDN");
         idHD=getIntent().getStringExtra("idHoaDonXuat");
-        Cursor dataListSPXuat=database.GetData_Condition("SELECT * FROM ChiTietHoaDonXuat WHERE TKKH=? AND idHoaDonXuat=? ",new String[]{username,idHD});
+        Cursor dataListSPXuat=database.GetData_Condition("SELECT * FROM ChiTietHoaDonXuat WHERE TKDN=? AND idHoaDonXuat=? ",new String[]{username,idHD});
         String IDShoe,TenSP,TKKH,idHoaDonXuat;
         Integer Size, SoLuong;
         double Gia;
@@ -88,7 +89,7 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
     }
     public void getView()
     {
-        btnThem=findViewById(R.id.btnThem);
+        btnXuat=findViewById(R.id.btnXuat);
         btnHuy=findViewById(R.id.btnHuy);
         lv=findViewById(R.id.listxuathang);
     }
@@ -101,7 +102,7 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
         Toast.makeText(this, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
         database.deleteData("ChiTietHoaDonXuat","TKDN=? AND idHoaDonXuat=? AND MaSP=?",new String[]{tkkh,idHD,masp});
         // if(s>0) Toast.makeText(this, "True", Toast.LENGTH_SHORT).show();
-        Cursor cursor = database.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonXuat Where TKKH=? AND idHoaDonXuat=? GROUP BY(TKKH)",new String[]{tkkh,idHD} );
+        Cursor cursor = database.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonXuat Where TKDN=? AND idHoaDonXuat=? GROUP BY(TKKH)",new String[]{tkkh,idHD} );
         double tong=0;
         int soSP=0;
         while(cursor.moveToNext()){
@@ -113,7 +114,7 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
         ContentValues hoadon=new ContentValues();
         hoadon.put("TongTien",tong);
         hoadon.put("SoSanPham",soSP);
-        database.updateData("HoaDonXuat",hoadon,"TKKH=? AND idHoaDonXuat=? ",new String[]{tkkh,idHD});
+        database.updateData("HoaDonXuat",hoadon,"TKDN=? AND idHoaDonXuat=? ",new String[]{tkkh,idHD});
         hienthiDL();
     }
 }

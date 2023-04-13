@@ -16,13 +16,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appquanlygiay.Database.Database;
-import com.example.appquanlygiay.Models.HoaDonNhap;
 import com.example.appquanlygiay.Models.HoaDonXuat;
 import com.example.appquanlygiay.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -66,7 +66,7 @@ public class activity_themhoadon_xuat extends AppCompatActivity
                             @Override
                             public void onDateSet(DatePicker datePicker, int yearr, int monthh, int dayy) {
                                 monthh=monthh+1;
-                                txtTimeXuat.setText(dayy+" / "+monthh+" / "+ yearr);
+                                txtTimeXuat.setText(dayy+"/"+monthh+"/"+ yearr);
                             }
                         } ,
                         year, month, day);

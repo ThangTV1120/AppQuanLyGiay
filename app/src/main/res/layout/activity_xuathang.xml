@@ -23,20 +23,23 @@
         android:layout_below="@+id/txtMaSP">
     </EditText>
 
-    <EditText
-        android:id="@+id/txtSize"
-        android:hint="Size"
+    <Spinner
+        android:id="@+id/ListSize"
+
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@+id/txtTenSP">
-    </EditText>
+        android:layout_below="@+id/txtTenSP"
+        android:layout_marginTop="1dp"
+        android:scrollbarSize="30dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/txtGia"
         android:hint ="Giá"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/txtSize">
+        android:inputType="number"
+        android:layout_below="@id/ListSize">
     </EditText>
 
     <EditText
@@ -44,16 +47,29 @@
         android:hint="Số lượng"
         android:layout_below="@id/txtGia"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:inputType="number">
     </EditText>
 
     <Button
         android:id="@+id/btnXuatHang"
         android:text="Xuất"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_below="@id/txtSoLuong"
-        android:layout_marginTop="22dp"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:textSize="20dp">
     </Button>
+    <Button
+        android:id="@+id/btnHuyThemHang"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txtSoLuong"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_toEndOf="@+id/btnXuatHang"
+        android:text="Hủy"
+        android:textSize="20dp" />
 </RelativeLayout>
