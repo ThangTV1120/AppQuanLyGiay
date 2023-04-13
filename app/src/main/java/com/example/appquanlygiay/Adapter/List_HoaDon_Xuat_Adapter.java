@@ -72,11 +72,15 @@ public class List_HoaDon_Xuat_Adapter extends BaseAdapter {
         String nguoimua=HDXuat.getNguoimua();
         String TongTien=Double.toString(HDXuat.getTongTienXuat());
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+<<<<<<< HEAD
         String NgayNhap=dateFormat.format(HDXuat.getDatexuat());
+=======
+        String NgayXuat=dateFormat.format(HDXuat.getDatexuat());
+>>>>>>> 2f8a8b16fd1a138792ea4b00d19abb35d30655df
         String SL=Integer.toString(HDXuat.getSoLuongsp());
         viewHoler.maHDXuat.setText("Mã HD:"+maHDNhap);
         viewHoler.tongTienXuat.setText("Tổng:"+TongTien);
-        viewHoler.ngayXuat.setText("Date:"+NgayNhap);
+        viewHoler.ngayXuat.setText("Date:"+NgayXuat);
         viewHoler.nguoimua.setText("Nguoimua:"+nguoimua);
         viewHoler.SLXuat.setText("Số Lượng: "+SL);
         return convertView;
