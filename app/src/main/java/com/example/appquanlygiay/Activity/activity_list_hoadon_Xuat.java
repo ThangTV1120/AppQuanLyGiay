@@ -77,7 +77,7 @@ public class activity_list_hoadon_Xuat extends AppCompatActivity {
     }
 
     public void getView() {
-        lv = findViewById(R.id.list_HoaDonNhap);
+        lv = findViewById(R.id.list_HoaDonXuat);
         dangxuat = findViewById(R.id.btt_DangXuat);
         TenNguoiSD = findViewById(R.id.TenNguoiSD);
     }

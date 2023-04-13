@@ -106,12 +106,12 @@ public class activity_themhoadon_xuat extends AppCompatActivity
                         else{
                             ContentValues values=new ContentValues();
                             values.put("idHoaDonXuat",idHoaDonXuat);
-                            values.put("Nguoimua",nguoimua);
+                            values.put("NguoiMua",nguoimua);
                             values.put("NgayXuat",datexuat);
                             values.put("SoSanPham",0);
                             values.put("TongTien",0);
                             values.put("TKDN",username);
-                            databaseHDXuat.insertData("HoaDonxuat",values);
+                            databaseHDXuat.insertData("HoaDonXuat",values);
 
                             Intent intent = new Intent(activity_themhoadon_xuat.this, activity_list_sanpham_xuat.class);
                             intent.putExtra("idHoaDonXuat",idHoaDonXuat);

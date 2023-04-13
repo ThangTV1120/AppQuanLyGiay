@@ -50,17 +50,6 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnThem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity_list_sanpham_xuat.this, activity_xuathang.class);
-                intent.putExtra("idHoaDonXuat", getIntent().getStringExtra("idHoaDonXuat"));
-                intent.putExtra("TKDN", getIntent().getStringExtra("TKDN"));
-                intent.putExtra("TenNguoiSuDung", getIntent().getStringExtra("TenNguoiSuDung"));
-//              finish();
-                startActivity(intent);
-            }
-        });
 
         btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +102,7 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
         Toast.makeText(this, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
         database.deleteData("ChiTietHoaDonXuat","TKDN=? AND idHoaDonXuat=? AND MaSP=?",new String[]{tkkh,idHD,masp});
         // if(s>0) Toast.makeText(this, "True", Toast.LENGTH_SHORT).show();
-        Cursor cursor = database.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonXuat Where TKDN=? AND idHoaDonXuat=? GROUP BY(TKKH)",new String[]{tkkh,idHD} );
+        Cursor cursor = database.GetData_Condition("Select count(MaSP),sum(Gia*SoLuong) FROM ChiTietHoaDonXuat Where TKDN=? AND idHoaDonXuat=? GROUP BY(TKDN)",new String[]{tkkh,idHD} );
         double tong=0;
         int soSP=0;
         while(cursor.moveToNext()){
