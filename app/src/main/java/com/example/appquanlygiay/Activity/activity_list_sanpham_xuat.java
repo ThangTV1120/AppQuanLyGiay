@@ -81,7 +81,7 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
             SoLuong=dataListSPXuat.getInt(4);
             TKKH=dataListSPXuat.getString(5);
             idHoaDonXuat=dataListSPXuat.getString(6);
-            arrayListSP.add(new ChiTietHoaDonXuat(IDShoe,TenSP,Size,Gia,SoLuong,TKKH,idHoaDonXuat));
+            arrayListSP.add(new ChiTietHoaDonXuat(IDShoe,TenSP,Size,Gia,SoLuong,idHoaDonXuat,TKKH));
 
         }
 //        dataListSPNhap.close();

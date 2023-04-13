@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 ",Size INTEGER,Gia DOUBLE,SoLuong INTEGER," + "TKDN VARCHAR(30)," +
                 "idHoaDonNhap VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
-        database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonXuat (MaSP VARCHAR(30),TenSP NVARCHAR(40)" +
+        database.QueryData("CREATE TABLE IF NOT EXISTS ChiTietHoaDonXuat(MaSP VARCHAR(30),TenSP NVARCHAR(40)" +
                 ",Size INTEGER,Gia DOUBLE,SoLuong INTEGER," + "TKDN VARCHAR(30)," +
                 "idHoaDonXuat VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 

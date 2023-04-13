@@ -38,6 +38,7 @@ public class activity_list_hoadon_Xuat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_hoadon_xuat);
         database = new Database(activity_list_hoadon_Xuat.this, "QuanLyGiay.sqlite", null, 1);
+        getView();
         String name = getIntent().getStringExtra("TenNguoiSuDung");
         TenNguoiSD.setText(name);
         String username = getIntent().getStringExtra("TKDN");
