@@ -2,14 +2,13 @@ package com.example.appquanlygiay.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.appquanlygiay.Adapter.List_SanPham_Adapter;
+import com.example.appquanlygiay.Adapter.List_SanPham_TrongHD_Nhap_Adapter;
 import com.example.appquanlygiay.Database.Database;
 import com.example.appquanlygiay.Models.ChiTietHoaDonNhap;
 import com.example.appquanlygiay.R;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 public class DS_SP_TrongHD_Nhap extends AppCompatActivity {
     Database database;
     ArrayList<ChiTietHoaDonNhap> arrayListSP;
-    List_SanPham_Adapter adapter;
+    List_SanPham_TrongHD_Nhap_Adapter adapter;
     ListView lv;
     ImageView out;
     @Override
@@ -29,7 +28,7 @@ public class DS_SP_TrongHD_Nhap extends AppCompatActivity {
         getView();
         database = new Database(DS_SP_TrongHD_Nhap.this,"QuanLyGiay.sqlite",null,1);
         arrayListSP=new ArrayList<>();
-        adapter=new List_SanPham_Adapter(this,R.layout.sanpham,arrayListSP);
+        adapter=new List_SanPham_TrongHD_Nhap_Adapter(this,R.layout.sanpham,arrayListSP);
         lv.setAdapter(adapter);
         out.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -12,11 +12,11 @@ import com.example.appquanlygiay.R;
 
 import java.util.List;
 
-public class List_SanPham_Adapter extends BaseAdapter {
+public class List_SanPham_TrongHD_Nhap_Adapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<ChiTietHoaDonNhap> ChiTietHoaDonNhapSP;
-    public List_SanPham_Adapter(Context context, int layout, List<ChiTietHoaDonNhap> chiTietHoaDonNhap){
+    public List_SanPham_TrongHD_Nhap_Adapter(Context context, int layout, List<ChiTietHoaDonNhap> chiTietHoaDonNhap){
         this.context=context;
         this.layout=layout;
         this.ChiTietHoaDonNhapSP=chiTietHoaDonNhap;

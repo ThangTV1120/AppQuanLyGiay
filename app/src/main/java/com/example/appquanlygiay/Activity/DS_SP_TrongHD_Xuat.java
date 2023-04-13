@@ -8,7 +8,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appquanlygiay.Adapter.List_SanPham_Adapter;
+import com.example.appquanlygiay.Adapter.List_SanPham_TrongHD_Nhap_Adapter;
+import com.example.appquanlygiay.Adapter.List_SanPham_TrongHD_Xuat_Adapter;
 import com.example.appquanlygiay.Adapter.List_SanPham_Xuat_Adapter;
 import com.example.appquanlygiay.Database.Database;
 import com.example.appquanlygiay.Models.ChiTietHoaDonXuat;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 public class DS_SP_TrongHD_Xuat extends AppCompatActivity {
     Database database;
     ArrayList<ChiTietHoaDonXuat> arrayListSP;
-    List_SanPham_Adapter adapter;
+    List_SanPham_TrongHD_Xuat_Adapter adapter;
     ListView lv;
     ImageView out;
 
@@ -30,7 +31,7 @@ public class DS_SP_TrongHD_Xuat extends AppCompatActivity {
         getView();
         database = new Database(DS_SP_TrongHD_Xuat.this,"QuanLyGiay.sqlite",null,1);
         arrayListSP=new ArrayList<>();
-        adapter=new List_SanPham_Xuat_Adapter(this,R.layout.sanpham,arrayListSP);
+        adapter=new List_SanPham_TrongHD_Xuat_Adapter(this,R.layout.sanpham,arrayListSP);
         lv.setAdapter(adapter);
         out.setOnClickListener(new View.OnClickListener() {
             @Override
