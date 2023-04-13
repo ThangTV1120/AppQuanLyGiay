@@ -14,10 +14,10 @@ public class ChiTietHoaDonXuat {
         this.IDShoe = IDShoe;
         this.idHoaDonXuat = idHoaDonXuat;
         this.TKKH = TKKH;
-        TenSP = tenSP;
-        Size = size;
-        Gia = gia;
-        SoLuong = soLuong;
+        this.TenSP = tenSP;
+        this.Size = size;
+        this.Gia = gia;
+        this.SoLuong = soLuong;
     }
 
     public String getIDShoe() {

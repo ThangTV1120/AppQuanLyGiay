@@ -3,29 +3,29 @@ package com.example.appquanlygiay.Models;
 import java.util.Date;
 
 public class HoaDonXuat {
-    String idXuat, nguoimua, nguoinhap;
-    Date datenhap;
-    int tongsp;
-    int TongTienXuat;
+    String idXuat, nguoimua, nguoinhap, TKKH;
+    Date datexuat;
+    int SoLuongsp;
+    double TongTienXuat;
 
     public HoaDonXuat() {
     }
 
-    public HoaDonXuat(String id, String nguoinhap, String nguoimua, Date datenhap, int tongsp, int TongTienXuat) {
-        this.idXuat = id;
-        this.nguoinhap = nguoinhap;
+    public HoaDonXuat(String idXuat, String nguoimua, Date datexuat, int SoLuongsp, double TongTienXuat, String TKKH){
+        this.idXuat= idXuat;
         this.nguoimua = nguoimua;
-        this.datenhap = datenhap;
-        this.tongsp = tongsp;
+        this.datexuat = datexuat;
+        this.SoLuongsp = SoLuongsp;
         this.TongTienXuat = TongTienXuat;
+        this.TKKH = TKKH;
     }
 
     public String getIdXuat() {
         return idXuat;
     }
 
-    public void setIdXuat(String id) {
-        this.idXuat = id;
+    public void setIdXuat(String idXuat) {
+        this.idXuat = idXuat;
     }
 
     public String getNguoimua() {
@@ -40,31 +40,39 @@ public class HoaDonXuat {
         return nguoinhap;
     }
 
-    public Date getDatenhap() {
-        return datenhap;
-    }
-
-    public void setDatenhap(Date datenhap) {
-        this.datenhap = datenhap;
-    }
-
-    public int getTongsp() {
-        return tongsp;
-    }
-
-    public void setTongsp(int tongsp) {
-        this.tongsp = tongsp;
-    }
-
     public void setNguoinhap(String nguoinhap) {
         this.nguoinhap = nguoinhap;
     }
 
-    public int getTongTienXuat() {
+    public String getTKKH() {
+        return TKKH;
+    }
+
+    public void setTKKH(String TKKH) {
+        this.TKKH = TKKH;
+    }
+
+    public Date getDatexuat() {
+        return datexuat;
+    }
+
+    public void setDatexuat(Date datexuat) {
+        this.datexuat = datexuat;
+    }
+
+    public int getSoLuongsp() {
+        return SoLuongsp;
+    }
+
+    public void setSoLuongsp(int soLuongsp) {
+        SoLuongsp = soLuongsp;
+    }
+
+    public double getTongTienXuat() {
         return TongTienXuat;
     }
 
-    public void setTongTienXuat(int tongTienXuat) {
+    public void setTongTienXuat(double tongTienXuat) {
         TongTienXuat = tongTienXuat;
     }
 }

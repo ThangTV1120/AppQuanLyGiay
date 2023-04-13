@@ -50,6 +50,17 @@ public class activity_list_sanpham_xuat extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_list_sanpham_xuat.this, activity_xuathang.class);
+                intent.putExtra("idHoaDonXuat", getIntent().getStringExtra("idHoaDonXuat"));
+                intent.putExtra("TKDN", getIntent().getStringExtra("TKDN"));
+                intent.putExtra("TenNguoiSuDung", getIntent().getStringExtra("TenNguoiSuDung"));
+//              finish();
+                startActivity(intent);
+            }
+        });
 
         btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override

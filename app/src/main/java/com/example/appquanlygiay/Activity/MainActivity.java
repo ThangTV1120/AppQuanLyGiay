@@ -90,6 +90,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btt_hoadonXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, activity_list_hoadon_Xuat.class);
+                intent.putExtra("TKDN",username);
+                intent.putExtra("TenNguoiSuDung",getIntent().getStringExtra("TenNguoiSuDung"));
+                startActivity(intent);
+            }
+        });
     }
     public void getView(){
         dangxuat=findViewById(R.id.btt_DangXuat);
