@@ -42,49 +42,6 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/textTimKiemHang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="Tìm kiếm...."
-            android:inputType="textPersonName"
-            android:textSize="35dp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/textTimKiemHang"
-            android:layout_centerInParent="true"
-            android:layout_margin="7dp"
-
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <RadioButton
-                android:id="@+id/btt_cao"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Giá từ cao xuống thấp"
-                tools:ignore="TouchTargetSizeCheck"
-                />
-
-            <RadioButton
-                android:id="@+id/btt_thap"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="12dp"
-                android:text="Giá từ thấp lên cao"
-                tools:ignore="TouchTargetSizeCheck" />
-
-
-        </RadioGroup>
-    </RelativeLayout>
 
     <ListView
         android:id="@+id/listGiayTrongKho"

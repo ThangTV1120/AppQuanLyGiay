@@ -2,6 +2,7 @@ package com.example.appquanlygiay.Adapter;
 
 import android.companion.WifiDeviceFilter;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,23 +56,23 @@ public class Hang_Trong_Kho_Adapter extends BaseAdapter {
             viewHoler.nameShoe=view.findViewById(R.id.txt_nameShoe);
             viewHoler.size=view.findViewById(R.id.txt_size);
             viewHoler.prize=view.findViewById(R.id.txt_prire);
-            viewHoler.soluong= view.findViewById(R.id.txtSoLuong);
+            viewHoler.soluong= view.findViewById(R.id.txt_SoLuong);
             view.setTag(viewHoler);
         }
         else{
-            viewHoler=(Hang_Trong_Kho_Adapter.ViewHoler) view.getTag();
+            viewHoler=(ViewHoler) view.getTag();
         }
             String idShoe = shoee.getIdShoes();
             String nameShoe=shoee.getNameShoes();
-            int size= shoee.getSize();
-            int prire = shoee.getPrice();
-            int soluong= shoee.getSoluong();
+            String size= Integer.toString(shoee.getSize());
+            String prire = Double.toString(shoee.getPrice());
+            String soluong= Integer.toString(shoee.getSoluong());
 
             viewHoler.idShoe.setText("idShoe : "+idShoe);
-            viewHoler.nameShoe.setText("nameShoe : "+nameShoe);
+            viewHoler.nameShoe.setText("NameShoe : "+nameShoe);
             viewHoler.size.setText("Size : "+ size);
-            viewHoler.prize.setText("Prize : "+prire);
-            viewHoler.prize.setText("SoLuong : "+soluong);
+            viewHoler.prize.setText("Price: "+prire);
+            viewHoler.soluong.setText("SoLuong : "+soluong);
             return  view;
     }
 

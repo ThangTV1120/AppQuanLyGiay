@@ -2,17 +2,18 @@ package com.example.appquanlygiay.Models;
 
 public class Shoes {
     String idShoes, nameShoes;
-    int size,price,Soluong;
+    int size,Soluong;
 
+    double price ;
     public Shoes() {
     }
 
-    public Shoes(String idShoes, String nameShoes, int size, int price, int soluong) {
+    public Shoes(String idShoes, String nameShoes, int size, double price, int soluong) {
         this.idShoes = idShoes;
         this.nameShoes = nameShoes;
         this.size = size;
         this.price = price;
-        Soluong = soluong;
+        this.Soluong = soluong;
     }
 
     public String getIdShoes() {
@@ -39,11 +40,11 @@ public class Shoes {
         this.size = size;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

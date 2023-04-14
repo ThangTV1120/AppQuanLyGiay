@@ -67,12 +67,7 @@ public class activity_hangtrongkho extends AppCompatActivity {
             }
         });
 
-        try {
-            hienthiDL();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+    hienthiDL();
     }
 
     public void getView(){
@@ -81,9 +76,9 @@ public class activity_hangtrongkho extends AppCompatActivity {
         TenNguoiSD=findViewById(R.id.TenNguoiSD);
     }
 
-    public void hienthiDL() throws ParseException {
+    public void hienthiDL() {
         String username=getIntent().getStringExtra("TKDN");
-        Cursor Shoe= databaseShoes.GetData_Condition("Select * from Shoe",new String[]{});
+        Cursor Shoe= databaseShoes.GetData("Select * from Shoes");
         arrayShoes.clear();
         String maShoe, nameShoee;
         int sizee,soluongg;
@@ -95,7 +90,7 @@ public class activity_hangtrongkho extends AppCompatActivity {
             prizee =Double.parseDouble(Shoe.getString(3));
             soluongg=Integer.parseInt(Shoe.getString(4));
             
-            arrayShoes.add(new Shoes());
+            arrayShoes.add(new Shoes(maShoe,nameShoee,sizee,prizee,soluongg));
         }
         adapter.notifyDataSetChanged();
     }

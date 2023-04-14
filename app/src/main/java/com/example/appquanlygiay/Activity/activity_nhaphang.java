@@ -120,27 +120,24 @@ public class activity_nhaphang extends AppCompatActivity {
                         Toast.makeText(activity_nhaphang.this, "Thêm Thành Công", Toast.LENGTH_SHORT).show();
 
                         ContentValues update = new ContentValues();
-                        Cursor htk=databaseShoe.GetData_Condition("SELECT Count(isShoe) FROM Shoe",new String[]{});
-                        htk.moveToFirst();
-                        if(htk.getInt(0)==0)
-                        {
                             update.put("idShoe",masp);
-                            update.put("nameShoe",tensp);
-                            update.put("size",s);
-                            update.put("prire",gia);
+                            update.put("NameShoe",tensp);
+                            update.put("Size",s);
+                            update.put("Gia",gia);
                             update.put("SoLuong",soluong);
-                            databaseShoe.updateData("Shoes",update,"idShoe=?",new String[]{masp});
-                        }
+                            Toast.makeText(activity_nhaphang.this, "Đax ", Toast.LENGTH_SHORT).show();
 
-                        else
-                        {
-                            Cursor slsp = databaseShoe.GetData_Condition("SELECT SoLuong FROM Shoes where idShoe=?",new String[]{masp});
-                            slsp.moveToFirst();
-                            int soluongmoi=slsp.getInt(0)+sl;
-                            update.put("SoLuong",soluongmoi);
-                            databaseShoe.updateData("Shoes",update,"idShoe =?",new String[]{masp});
+                            databaseShoe.insertData("Shoes",update);
 
-                        }
+//                        else
+//                        {
+//                            Cursor slsp = databaseShoe.GetData_Condition("SELECT SoLuong FROM Shoes where idShoe=?",new String[]{masp});
+//                            slsp.moveToFirst();
+//                            int soluongmoi=slsp.getInt(0)+sl;
+//                            update.put("SoLuong",soluongmoi);
+//                            databaseShoe.updateData("Shoes",update,"idShoe =?",new String[]{masp});
+//
+//                        }
 
                     }
                 }

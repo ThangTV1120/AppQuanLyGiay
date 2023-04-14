@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 "idHoaDonXuat VARCHAR(30),"+"FOREIGN KEY (TKDN) REFERENCES User(TKDN))");
 
         database.QueryData("CREATE TABLE IF NOT EXISTS Shoes (idShoe VARCHAR(30) PRIMARY KEY, NameShoe NVARCHAR(30),"
-                + "SoLuong INTERGER"+"Size INTERGER ,"+ "Gia DOUBLE )");
+                +"Size INTERGER ,"+ "Gia DOUBLE ,"+ "SoLuong INTERGER)");
 
         dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override
